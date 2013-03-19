@@ -1,0 +1,4 @@
+MissingFeatures
+===============
+
+Ohjelmistotuotanto - Miniprojekti
