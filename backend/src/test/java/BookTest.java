@@ -11,10 +11,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/**
- *
- * @author ville
- */
+
 public class BookTest {
     
     private Book book;
@@ -22,20 +19,6 @@ public class BookTest {
     
     @Before
     public void setUp() {
-    }
-    
-    @Test
-    public void bookConstructorTest() {
-        String author = "Hemingway";
-        String title = "Something really manly";
-        String publisher = "An important publishing company";
-        String year = "1969";
-        
-        book = new Book(author, title, publisher, year);
-        assertEquals(author, book.getAuthor());
-        assertEquals(title, book.getTitle());
-        assertEquals(publisher, book.getPublisher());
-        assertEquals(year, book.getYear());
     }
     
     @After

@@ -35,4 +35,13 @@
           class="org.springframework.web.servlet.mvc.ParameterizableViewController"
           p:viewName="index" />
 
+    <!-- Spring annotaatiovetoiseksi -->
+    <mvc:annotation-driven />
+    
+    <!-- Sovelluksemme lähdekooditiedostot sijaitsevat com.missingfeaturse.bibtext tai sen alipakkauksissa-->
+    <context:component-scan base-package="com.missingfeaturse.bibtext" />
+    
+    <!-- tietokantakonfiguraatio -->
+    <import resource="database.xml" />
+    
 </beans>
