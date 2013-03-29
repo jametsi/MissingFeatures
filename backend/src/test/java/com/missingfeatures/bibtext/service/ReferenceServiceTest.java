@@ -6,37 +6,24 @@ package com.missingfeatures.bibtext.service;
 
 import com.missingfeatures.bibtext.models.Book;
 import java.util.List;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
  *
  * @author jami
  */
-public class JpaReferenceServiceTest {
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = {"file:src/main/webapp/WEB-INF/applicationContext.xml"})
+
+public class ReferenceServiceTest {
     
-    private JpaReferenceService service;
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-        this.service = new JpaReferenceService();
-    }
-    
-    @After
-    public void tearDown() {
-    }
+    @Autowired
+    private ReferenceService service;
 
     /**
      * Test of findAll method, of class JpaReferenceService.
@@ -45,6 +32,7 @@ public class JpaReferenceServiceTest {
     public void returnsEmptyListAfterCreation() {
         System.out.println("findAll");
         List resultList = this.service.findAll();
+        System.out.println("Resultlist: "+resultList);
         assertEquals(0, resultList.size());
     }
 
