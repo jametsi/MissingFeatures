@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-import com.missingfeatures.bibtext.model.Book;
+import com.missingfeatures.bibtext.models.Book;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
