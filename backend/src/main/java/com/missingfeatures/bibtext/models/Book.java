@@ -21,6 +21,14 @@ public class Book {
     private String publisher;
     private String pubYear;
     
+    public void setId(Long id) {
+        this.id = id;
+    }
+    
+    public Long getId() {
+        return this.id;
+    }
+    
     public String getAuthor() {
         return author;
     }
