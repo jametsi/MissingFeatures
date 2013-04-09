@@ -24,16 +24,20 @@ public class ReferenceController {
     @Autowired
     private ReferenceService service;
     
-    @RequestMapping(value ="/", method = RequestMethod.GET, produces="application/json")
+    @RequestMapping(value ="/rest", method = RequestMethod.GET, produces="application/json")
     @ResponseBody
     public List<Book> listReferences() { 
         return service.findAll();
     }
     
-    @RequestMapping(value ="/", method = RequestMethod.POST, consumes="application/json")
-    @ResponseBody
+    @RequestMapping(value ="/rest", method = RequestMethod.POST, consumes="application/json")
     public void add(@RequestBody Book reference) {
         service.create(reference);
+    }
+    
+    @RequestMapping(value ="/", method = RequestMethod.GET)
+    public String redirectToFront() { 
+        return "redirect:/front/index.html";
     }
     
 }
