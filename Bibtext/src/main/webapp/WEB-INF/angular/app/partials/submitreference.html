@@ -1,12 +1,15 @@
 <p>Submit new reference to the Database.</p>
-<form name="input">
-    <label>Title: </label>
-    <input type="text" name="title"><br>
-    <label>Author: </label>
-    <input type="text" name="author"><br>
-    <label>Publisher:  </label>
-    <input type="text" name="publisher"><br>
-    <label>Year of publish</label>
-    <input type="text" name="pubyear"><br>
-    <input type="submit" value="Submit">
+<div>
+<form novalidate>
+    
+        Title: <input type="text" ng-model="book.name" /><br />
+        Author: <input type="text" ng-model="book.email" /><br />
+        Publisher: <input type="text" ng-model="book.pub" /><br />
+        Publish year: <input type="text" ng-model="book.pubYear" /><br />
+        <button ng-click="reset()">Clear</button>
+        <button ng-click="submit(book)">Submit</button>
 </form>
+
+form = {{book | json }}
+
+</div>
