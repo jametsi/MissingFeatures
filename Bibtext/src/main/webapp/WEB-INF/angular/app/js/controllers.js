@@ -2,15 +2,30 @@
 
 /* Controllers */
 
-var references;
-
-function listController() {
+function listController($scope, $http) {
     $http.get('../rest').success(function(data) {
         $scope.phones = data;
     });
 }
 listController.$inject = ['$scope', '$http']
 
-function MyCtrl2() {
+function submissionController($scope, $http) {
+    
+ $scope.book= {};
+ 
+  $scope.update = function(book) {
+    $scope.master = angular.copy(book);
+  };
+ 
+  $scope.reset = function() {
+    $scope.book = {}; 
+ };
+ 
+ $scope.submit = function(book) {
+    
+     $http.post('../rest', angular.toJson($scope.book), {'Content-Type': 'application/json'});
+ }
+ 
+  $scope.reset();
+    
 }
-MyCtrl2.$inject = [];

@@ -5,6 +5,6 @@
 angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.directives']).
   config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/list', {templateUrl: 'partials/listreferences.html', controller: listController});
-    $routeProvider.when('/submit', {templateUrl: 'partials/submitreference.html', controller: MyCtrl2});
+    $routeProvider.when('/submit', {templateUrl: 'partials/submitreference.html', controller: submissionController});
     $routeProvider.otherwise({redirectTo: '/list'});
   }]);
