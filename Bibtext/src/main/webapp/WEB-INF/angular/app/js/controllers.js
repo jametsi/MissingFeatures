@@ -9,7 +9,7 @@ function listController($scope, $http) {
 }
 listController.$inject = ['$scope', '$http']
 
-function submissionController($scope, $http) {
+function submissionController($scope, $http, $location) {
     
  $scope.book= {};
  
@@ -24,6 +24,7 @@ function submissionController($scope, $http) {
  $scope.submit = function(book) {
     
      $http.post('../rest', angular.toJson($scope.book), {'Content-Type': 'application/json'});
+     $location.path('/list');
  }
  
   $scope.reset();
