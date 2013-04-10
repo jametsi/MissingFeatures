@@ -21,6 +21,8 @@
     <!-- Use Spring MVC with annotations -->
     <mvc:annotation-driven />
     
+    <context:annotation-config/> 
+    
     <!-- Database configuration -->
     <import resource="database.xml" />
     

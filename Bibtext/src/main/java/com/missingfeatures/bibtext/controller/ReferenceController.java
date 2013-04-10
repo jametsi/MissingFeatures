@@ -31,6 +31,7 @@ public class ReferenceController {
     }
     
     @RequestMapping(value ="/rest", method = RequestMethod.POST, consumes="application/json")
+    @ResponseBody
     public void add(@RequestBody Book reference) {
         service.create(reference);
     }
