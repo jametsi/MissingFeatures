@@ -2,10 +2,14 @@
 
 /* Controllers */
 
+var references;
 
-function MyCtrl1() {}
-MyCtrl1.$inject = [];
-
+function listController() {
+    $http.get('../rest').success(function(data) {
+        $scope.phones = data;
+    });
+}
+listController.$inject = ['$scope', '$http']
 
 function MyCtrl2() {
 }
