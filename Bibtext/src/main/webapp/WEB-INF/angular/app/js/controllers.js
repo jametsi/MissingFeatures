@@ -4,7 +4,7 @@
 
 function listController($scope, $http) {
     $http.get('../rest').success(function(data) {
-        $scope.phones = data;
+        $scope.references = data;
     });
 }
 listController.$inject = ['$scope', '$http']
