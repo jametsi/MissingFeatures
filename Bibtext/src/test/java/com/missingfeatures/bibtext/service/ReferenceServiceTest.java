@@ -42,7 +42,13 @@ public class ReferenceServiceTest {
     @Test
     public void bookCanBeAdded() {
         System.out.println("create");
+        
         Book book = new Book();
+        book.setAuthor("Jami Karvanen");
+        book.setTitle("Oma kirja");
+        book.setPublisher("Otava");
+        book.setYear("2013");
+
         this.service.create(book);
         
         List<Book> books = this.service.findAll();
@@ -52,7 +58,9 @@ public class ReferenceServiceTest {
         
         book = books.get(0);
         Long bookId = book.getId();
+        String bookAuthor = book.getAuthor();
         
         assertEquals((Long) 1L, bookId);
+        assertEquals("Jami Karvanen", bookAuthor);
     }
 }
