@@ -47,7 +47,7 @@ public class ReferenceServiceTest {
         book.setAuthor("Jami Karvanen");
         book.setTitle("Oma kirja");
         book.setPublisher("Otava");
-        book.setYear("2013");
+        book.setPubYear("2013");
 
         this.service.create(book);
         

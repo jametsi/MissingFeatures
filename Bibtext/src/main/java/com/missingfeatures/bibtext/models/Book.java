@@ -54,11 +54,11 @@ public class Book implements Serializable {
         this.publisher = publisher;
     }
     
-    public String getYear() {
+    public String getPubYear() {
         return pubYear;
     }
     
-    public void setYear(String year) {
+    public void setPubYear(String year) {
         this.pubYear = year;
     }
     
