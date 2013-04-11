@@ -4,7 +4,7 @@
  */
 package com.missingfeatures.bibtext.service;
 
-import com.missingfeatures.bibtext.models.Book;
+import com.missingfeatures.bibtext.models.Reference;
 import com.missingfeatures.bibtext.repositories.JpaReferenceRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,12 +21,12 @@ public class JpaReferenceService implements ReferenceService {
     private JpaReferenceRepository repository;
     
     @Override
-    public List<Book> findAll() {
+    public List<Reference> findAll() {
         return repository.findAll();
     }
     
     @Override
-    public void create(Book reference) {
+    public void create(Reference reference) {
         repository.save(reference);
     }
     

@@ -4,7 +4,7 @@
  */
 package com.missingfeatures.bibtext.controller;
 
-import com.missingfeatures.bibtext.models.Book;
+import com.missingfeatures.bibtext.models.Reference;
 import com.missingfeatures.bibtext.service.ReferenceService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,13 +26,13 @@ public class ReferenceController {
     
     @RequestMapping(value ="/rest", method = RequestMethod.GET, produces="application/json")
     @ResponseBody
-    public List<Book> listReferences() { 
+    public List<Reference> listReferences() { 
         return service.findAll();
     }
     
     @RequestMapping(value ="/rest", method = RequestMethod.POST, consumes="application/json")
     @ResponseBody
-    public void add(@RequestBody Book reference) {
+    public void add(@RequestBody Reference reference) {
         service.create(reference);
     }
     
