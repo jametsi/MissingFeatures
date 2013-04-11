@@ -5,25 +5,25 @@
 describe('my app', function() {
 
   beforeEach(function() {
-    browser().navigateTo('../../front/index.html');
+    browser().navigateTo('../../app/index.html');
   });
 
 
-  it('should automatically redirect to /list when location hash/fragment is empty', function() {
-    expect(browser().location().url()).toBe("/list");
+  it('should automatically redirect to /view1 when location hash/fragment is empty', function() {
+    expect(browser().location().url()).toBe("/view1");
   });
 
 
-  describe('list', function() {
+  describe('view1', function() {
 
     beforeEach(function() {
-      browser().navigateTo('#/list');
+      browser().navigateTo('#/view1');
     });
 
 
     it('should render view1 when user navigates to /view1', function() {
       expect(element('[ng-view] p:first').text()).
-        toMatch(/This will be the reference list, it tries to get the array of references, and shows reference.bibtext./);
+        toMatch(/partial for view 1/);
     });
 
   });
