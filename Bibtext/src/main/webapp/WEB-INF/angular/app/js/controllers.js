@@ -3,30 +3,41 @@
 /* Controllers */
 
 function listController($scope, $http) {
-    $http.get('../rest').success(function(data) {
+    
+    // Getter method for JSON data from backend
+    $scope.getListing = function() {
+            $http.get('../rest').success(function(data) {
         $scope.references = data;
     });
-}
-listController.$inject = ['$scope', '$http']
+    }
+    // Default action after page load
+    $scope.getListing();
+};
 
 function submissionController($scope, $http, $location) {
+ 
+    // Clear the book at first
+    $scope.book= {};
+ 
+    // Update the object whenever a letter is typed
+    $scope.update = function(book) {
+        $scope.master = angular.copy(book);
+    };
+
+    // Empty the book data
+    $scope.reset = function() {
+        $scope.book = {}; 
+    };
+ 
+    // Submit the HTTP Post to backend REST URL
+    $scope.submit = function(book) {
     
- $scope.book= {};
- 
-  $scope.update = function(book) {
-    $scope.master = angular.copy(book);
-  };
- 
-  $scope.reset = function() {
-    $scope.book = {}; 
- };
- 
- $scope.submit = function(book) {
+        $http.post('../rest', angular.toJson($scope.book), {
+            'Content-Type': 'application/json'
+        }).success(function(date) { $location.path("/list")});
+        
+    }
     
-     $http.post('../rest', angular.toJson($scope.book), {'Content-Type': 'application/json'});
-     $location.path('/list');
- }
- 
-  $scope.reset();
+    $scope.reset();
     
-}
+};
