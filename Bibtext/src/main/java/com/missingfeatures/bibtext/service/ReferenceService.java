@@ -4,7 +4,7 @@
  */
 package com.missingfeatures.bibtext.service;
 
-import com.missingfeatures.bibtext.models.Book;
+import com.missingfeatures.bibtext.models.Reference;
 import java.util.List;
 
 /**
@@ -13,8 +13,8 @@ import java.util.List;
  */
 public interface ReferenceService {
 
-    void create(Book reference);
+    void create(Reference reference);
 
-    List<Book> findAll();
+    List<Reference> findAll();
     
 }

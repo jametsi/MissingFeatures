@@ -4,7 +4,7 @@
  */
 package com.missingfeatures.bibtext.service;
 
-import com.missingfeatures.bibtext.models.Book;
+import com.missingfeatures.bibtext.models.Reference;
 import java.util.List;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -43,15 +43,15 @@ public class ReferenceServiceTest {
     public void bookCanBeAdded() {
         System.out.println("create");
         
-        Book book = new Book();
+        Reference book = new Reference();
         book.setAuthor("Jami Karvanen");
         book.setTitle("Oma kirja");
         book.setPublisher("Otava");
-        book.setPubYear("2013");
+        book.setPubYear(2013);
 
         this.service.create(book);
         
-        List<Book> books = this.service.findAll();
+        List<Reference> books = this.service.findAll();
         int referencySum = books.size();
         
         assertEquals(1, referencySum);
