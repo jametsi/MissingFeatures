@@ -1,6 +1,6 @@
 
-<table id="referenceList" class="table-hover table">
-    <tr>
+<table id="referenceList" class="table-hover table" >
+    <tr ng-hide="!references.length">
         <th>Id</th>
         <th>Title</th>
         <th>Author</th>
@@ -15,3 +15,4 @@
         <td>{{reference.pubYear}}</td>
     </tr>
 </table>
+<p class="alert alert-block" ng-show="!references.length">No references! You can add new references from the top menu</p>
