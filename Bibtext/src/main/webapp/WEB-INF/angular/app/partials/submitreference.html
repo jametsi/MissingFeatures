@@ -1,6 +1,5 @@
-<p>Submit new reference to the Database.</p>
 <div>
-<form name="submitReference" novalidate>
+<!--<form name="submitReference" novalidate>
     
         Title: <input type="text" name="title" ng-model="book.title" required/>
         <span class="error" ng-show="submitReference.title.$error.required">required</span><br>
@@ -14,8 +13,62 @@
 
         <button ng-click="reset()">Clear</button>
         <button ng-click="submit(book)">Submit</button>
-</form>
+</form>-->
 
+<form name="submitReference" class="form-horizontal">
+<fieldset>
+
+<!-- Form Name -->
+<legend>Submit new reference</legend>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label">Title</label>
+  <div class="controls">
+    <input id="textinput" name="title" type="text" placeholder="" class="input-xlarge" ng-model="book.title" required>
+    <span class="error" ng-show="submitReference.title.$error.required">required</span>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label">Author</label>
+  <div class="controls">
+    <input id="textinput" name="author" type="text" placeholder="" class="input-xlarge" ng-model="book.author" required>
+    <span class="error" ng-show="submitReference.author.$error.required">required</span>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label">Publisher</label>
+  <div class="controls">
+    <input id="textinput" name="publisher" type="text" placeholder="" class="input-xlarge" ng-model="book.publisher">
+    <span class="error" ng-show="submitReference.publisher.$error.required">required</span>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label">Year published</label>
+  <div class="controls">
+    <input id="textinput" name="pubYear" type="text" placeholder="" class="input-xlarge" ng-model="book.pubYear" required>
+    <span class="error" ng-show="submitReference.pubYear.$error.required">required</span>
+  </div>
+</div>
+
+<!-- Button (Double) -->
+<div class="control-group">
+  <label class="control-label"></label>
+  <div class="controls">
+    <button id="button1id" name="button1id" class="btn btn-danger" ng-click="reset()">Clear</button>
+    <button id="button2id" name="button2id" class="btn btn-success" ng-click="submit(book)">Submit</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+    
 form = {{book | json }}
 
 </div>
