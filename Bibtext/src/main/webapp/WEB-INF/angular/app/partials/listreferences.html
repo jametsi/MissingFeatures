@@ -1,11 +1,17 @@
-<p>This will be the reference list, it tries to get the array of references, and shows reference.bibtext.</p>
-<button ng-click="getListing()">Refresh</button>
-<ul class="references">
-    <li ng-repeat="reference in references">
-        <b>{{reference.title}}</b><br>
-        Author: {{reference.author}}<br>
-        ID: {{reference.id}}<br>
-        Pub: {{reference.publisher}}<br>
-        Year: {{reference.pubYear}}<br>
-    </li>
-</ul>
+
+<table class="table-hover table">
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Publisher</th>
+        <th>Year published</th>
+    </tr>
+    <tr ng-repeat="reference in references">
+        <td>{{reference.id}}</td>
+        <td>{{reference.title}}</td>
+        <td>{{reference.author}}</td>
+        <td>{{reference.publisher}}</td>
+        <td>{{reference.pubYear}}</td>
+    </tr>
+</table>
