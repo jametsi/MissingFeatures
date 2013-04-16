@@ -19,11 +19,11 @@
 <div class="control-group">
   <label class="control-label">Author</label>
   <div class="controls">
-      <div ng-repeat="author in book.author">
-      <input id="textinput" name="author" type="text" placeholder="" class="input-xlarge" ng-model="book.author" required>
+      <div ng-repeat="auth in book.author">
+        <input id="textinput" name="auth[$index]" type="text" placeholder="" class="input-xlarge" ng-model="book.author[$index].name" required>
+        <span class="error" ng-show="submitReference.author[$index].$error.required">required</span>
       </div>
-    <i class="icon-plus-sign" onclick="newAuthorField()"></i>
-    <span class="error" ng-show="submitReference.author.$error.required">required</span>
+    <i class="icon-plus-sign" ng-click="newAuthorField()"></i>
   </div>
 </div>
 
@@ -59,3 +59,5 @@
 </form>
 
 </div>
+
+<pre>{{book | json }} </pre>

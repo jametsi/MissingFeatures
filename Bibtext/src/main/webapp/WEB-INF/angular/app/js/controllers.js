@@ -22,17 +22,23 @@ function referenceDetailController($scope, $http) {
 function submissionController($scope, $http, $location) {
  
     // Clear the book at first
-    $scope.book= {};
- 
+    $scope.book = {
+        "author" : [{"name": ""}]
+    };
     // Update the object whenever a letter is typed
-    $scope.update = function(book) {
-        $scope.master = angular.copy(book);
+  //  $scope.update = function(book) {
+ //       $scope.master = angular.copy(book);
+ //   };
+    
+    $scope.newAuthorField = function() {
+        $scope.book.author.push({"name": ""});
     };
 
     // Empty the book data
     $scope.reset = function() {
         $scope.book = {}; 
     };
+    
  
     // Submit the HTTP Post to backend REST URL
     $scope.submit = function(book) {
@@ -42,7 +48,5 @@ function submissionController($scope, $http, $location) {
         }).success(function(date) { $location.path("/list")});
         
     }
-    
-    $scope.reset();
     
 };
