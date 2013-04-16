@@ -30,4 +30,9 @@ public class JpaReferenceService implements ReferenceService {
         repository.save(reference);
     }
     
+    @Override
+    public Reference findOne(long referenceId) {
+        return repository.findOne(referenceId);
+    }
+    
 }

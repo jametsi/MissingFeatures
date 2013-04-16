@@ -59,7 +59,7 @@ public class ReferenceServiceTest {
         Long bookId = book.getId();
         assertEquals((Long) 1L, bookId);
         
-        String bookAuthor = book.getAuthor();
+        String bookAuthor = book.getAuthors().get(0);
         assertEquals("author", bookAuthor);
     }
 }
