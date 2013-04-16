@@ -5,10 +5,12 @@
 package com.missingfeatures.bibtext.models;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 public class Reference implements Serializable {
@@ -16,18 +18,26 @@ public class Reference implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    
+    @NotEmpty
+    private String author;
+    
+    @NotEmpty
+    private String title;
+    
+    @NotEmpty
+    @Column(name="pubyear")
+    private int year;
+    
     private String bibtextID;
     private String type;
-    private String author;
-    private String title;
     private String booktitle;
     private String publisher;
-    private int pubYear;
     private String pages;
     private String address;
-    private String articleJournal;
-    private String articleVolume;
-    private String articleNumber;
+    private String journal;
+    private String volume;
+    private String number;
 
     /**
      * @return the id
@@ -110,15 +120,15 @@ public class Reference implements Serializable {
     /**
      * @return the pubYear
      */
-    public int getPubYear() {
-        return pubYear;
+    public int getYear() {
+        return year;
     }
 
     /**
      * @param pubYear the pubYear to set
      */
-    public void setPubYear(int pubYear) {
-        this.pubYear = pubYear;
+    public void setYear(int year) {
+        this.year = year;
     }
 
     /**
@@ -163,49 +173,28 @@ public class Reference implements Serializable {
         this.address = address;
     }
 
-    /**
-     * @return the articleJournal
-     */
-    public String getArticleJournal() {
-        return articleJournal;
+    public String getJournal() {
+        return journal;
     }
 
-    /**
-     * @param articleJournal the articleJournal to set
-     */
-    public void setArticleJournal(String articleJournal) {
-        this.articleJournal = articleJournal;
+    public void setJournal(String journal) {
+        this.journal = journal;
     }
 
-    /**
-     * @return the articleVolume
-     */
-    public String getArticleVolume() {
-        return articleVolume;
+    public String getVolume() {
+        return volume;
     }
 
-    /**
-     * @param articleVolume the articleVolume to set
-     */
-    public void setArticleVolume(String articleVolume) {
-        this.articleVolume = articleVolume;
+    public void setVolume(String volume) {
+        this.volume = volume;
     }
 
-    /**
-     * @return the articleNumber
-     */
-    public String getArticleNumber() {
-        return articleNumber;
+    public String getNumber() {
+        return number;
     }
 
-    /**
-     * @param articleNumber the articleNumber to set
-     */
-    public void setArticleNumber(String articleNumber) {
-        this.articleNumber = articleNumber;
+    public void setNumber(String number) {
+        this.number = number;
     }
-    
-    
-    
-   
+ 
 }
