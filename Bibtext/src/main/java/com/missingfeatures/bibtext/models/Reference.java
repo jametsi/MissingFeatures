@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
@@ -25,7 +26,7 @@ public class Reference implements Serializable {
     @NotEmpty
     private String title;
     
-    @NotEmpty
+    @NotNull
     @Column(name="pubyear")
     private int year;
     
@@ -36,9 +37,31 @@ public class Reference implements Serializable {
     private String pages;
     private String address;
     private String journal;
-    private String volume;
-    private String number;
+    private int volume;
+    private int number;
 
+    public Reference() {}
+
+    public Reference(String author, String title, int year, String bibtextID, 
+            String type, String booktitle, String publisher, String pages, 
+            String address, String journal, int volume, int number) {
+        
+        this.author = author;
+        this.title = title;
+        this.year = year;
+        this.bibtextID = bibtextID;
+        this.type = type;
+        this.booktitle = booktitle;
+        this.publisher = publisher;
+        this.pages = pages;
+        this.address = address;
+        this.journal = journal;
+        this.volume = volume;
+        this.number = number;
+    }
+    
+
+    
     /**
      * @return the id
      */
@@ -181,19 +204,19 @@ public class Reference implements Serializable {
         this.journal = journal;
     }
 
-    public String getVolume() {
+    public int getVolume() {
         return volume;
     }
 
-    public void setVolume(String volume) {
+    public void setVolume(int volume) {
         this.volume = volume;
     }
 
-    public String getNumber() {
+    public int getNumber() {
         return number;
     }
 
-    public void setNumber(String number) {
+    public void setNumber(int number) {
         this.number = number;
     }
  

@@ -43,11 +43,9 @@ public class ReferenceServiceTest {
     public void bookCanBeAdded() {
         System.out.println("create");
         
-        Reference book = new Reference();
-        book.setAuthor("Jami Karvanen");
-        book.setTitle("Oma kirja");
-        book.setPublisher("Otava");
-        book.setPubYear(2013);
+        Reference book = new Reference("author", "title", 2013, 
+                "bibtextID", "type", "booktitle", "publisher", 
+                "pages", "address", "journal", 1, 1);
 
         this.service.create(book);
         
@@ -57,10 +55,11 @@ public class ReferenceServiceTest {
         assertEquals(1, referencySum);
         
         book = books.get(0);
-        Long bookId = book.getId();
-        String bookAuthor = book.getAuthor();
         
+        Long bookId = book.getId();
         assertEquals((Long) 1L, bookId);
-        assertEquals("Jami Karvanen", bookAuthor);
+        
+        String bookAuthor = book.getAuthor();
+        assertEquals("author", bookAuthor);
     }
 }
