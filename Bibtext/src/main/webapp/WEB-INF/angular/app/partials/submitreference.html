@@ -21,7 +21,7 @@
   <div class="controls">
       <div ng-repeat="auth in book.author">
         <input id="textinput" name="auth[$index]" type="text" placeholder="" class="input-xlarge" ng-model="book.author[$index].name" required>
-        <span class="error" ng-show="submitReference.author[$index].$error.required">required</span>
+        <span class="error" ng-show="submitReference.auth[$index].$error.required">required</span>
       </div>
     <i class="icon-plus-sign" ng-click="newAuthorField()"></i>
   </div>
