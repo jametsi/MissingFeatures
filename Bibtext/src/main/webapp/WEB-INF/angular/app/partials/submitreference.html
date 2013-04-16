@@ -19,7 +19,10 @@
 <div class="control-group">
   <label class="control-label">Author</label>
   <div class="controls">
-    <input id="textinput" name="author" type="text" placeholder="" class="input-xlarge" ng-model="book.author" required>
+      <div ng-repeat="author in book.author">
+      <input id="textinput" name="author" type="text" placeholder="" class="input-xlarge" ng-model="book.author" required>
+      </div>
+    <i class="icon-plus-sign" onclick="newAuthorField()"></i>
     <span class="error" ng-show="submitReference.author.$error.required">required</span>
   </div>
 </div>
