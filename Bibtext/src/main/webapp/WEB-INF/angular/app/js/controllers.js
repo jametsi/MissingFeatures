@@ -48,9 +48,7 @@ function submissionController($scope, $http, $location) {
  
     // Submit the HTTP Post to backend REST URL
     $scope.submit = function(reference) {
-        console.log(reference);
         reference["authors"] = authorsToStringArray(reference);
-        console.log(reference);
         $http.post('../rest', angular.toJson(reference), {
             'Content-Type': 'application/json'
         }).success(function(date) { $location.path("/list")});

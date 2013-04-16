@@ -19,8 +19,8 @@
             <div class="control-group">
                 <label class="control-label">Author</label>
                 <div class="controls">
-                    <div ng-repeat="auth in reference.author">
-                        <input id="textinput" name="auth[$index]" type="text" placeholder="" class="input-xlarge" ng-model="reference.author[$index].name" required>
+                    <div ng-repeat="auth in reference.authors">
+                        <input id="textinput" name="auth[$index]" type="text" placeholder="" class="input-xlarge" ng-model="reference.authors[$index].name" required>
                         <span class="error" ng-show="submitReference.auth[$index].$error.required">required</span>
                     </div>
                     <i class="icon-plus-sign" ng-click="newAuthorField()"></i>
