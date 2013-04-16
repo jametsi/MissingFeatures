@@ -22,31 +22,39 @@ function referenceDetailController($scope, $http) {
 function submissionController($scope, $http, $location) {
  
     // Clear the book at first
-    $scope.book = {
-        "author" : [{"name": ""}]
-    };
     // Update the object whenever a letter is typed
   //  $scope.update = function(book) {
  //       $scope.master = angular.copy(book);
  //   };
     
     $scope.newAuthorField = function() {
-        $scope.book.author.push({"name": ""});
+        $scope.reference.author.push({"name": ""});
     };
 
     // Empty the book data
     $scope.reset = function() {
-        $scope.book = {}; 
+        $scope.reference = {
+            "author" : [{"name": ""}]
+        };
     };
     
+    function authorsToStringArray(reference) {
+        var resultArray = [];
+        for(var i = 0 ; i < reference["author"].length ; ++i) {
+            resultArray.push(reference["author"][i]);
+        };
+        return resultArray;
+    };
  
     // Submit the HTTP Post to backend REST URL
-    $scope.submit = function(book) {
-    
-        $http.post('../rest', angular.toJson($scope.book), {
+    $scope.submit = function(reference) {
+        reference["author"] = authorsToStringArray(reference);
+        
+        $http.post('../rest', angular.toJson(reference), {
             'Content-Type': 'application/json'
         }).success(function(date) { $location.path("/list")});
         
-    }
+    };
+    $scope.reset();
     
 };
