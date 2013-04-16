@@ -1,63 +1,63 @@
 <div>
 
-<form name="submitReference" class="form-horizontal">
-<fieldset>
+    <form name="submitReference" class="form-horizontal">
+        <fieldset>
 
-<!-- Form Name -->
-<legend>Submit new reference</legend>
+            <!-- Form Name -->
+            <legend>Submit new reference</legend>
 
-<!-- Text input-->
-<div class="control-group">
-  <label class="control-label">Title</label>
-  <div class="controls">
-    <input id="textinput" name="title" type="text" placeholder="" class="input-xlarge" ng-model="book.title" required>
-    <span class="error" ng-show="submitReference.title.$error.required">required</span>
-  </div>
+            <!-- Text input-->
+            <div class="control-group">
+                <label class="control-label">Title</label>
+                <div class="controls">
+                    <input id="textinput" name="title" type="text" placeholder="" class="input-xlarge" ng-model="reference.title" required>
+                    <span class="error" ng-show="submitReference.title.$error.required">required</span>
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="control-group">
+                <label class="control-label">Author</label>
+                <div class="controls">
+                    <div ng-repeat="auth in reference.author">
+                        <input id="textinput" name="auth[$index]" type="text" placeholder="" class="input-xlarge" ng-model="reference.author[$index].name" required>
+                        <span class="error" ng-show="submitReference.auth[$index].$error.required">required</span>
+                    </div>
+                    <i class="icon-plus-sign" ng-click="newAuthorField()"></i>
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="control-group">
+                <label class="control-label">Year published</label>
+                <div class="controls">
+                    <input id="textinput" name="year" type="text" placeholder="" class="input-xlarge" ng-model="reference.year" required>
+                    <span class="error" ng-show="submitReference.pubYear.$error.required">required</span>
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="control-group">
+                <label class="control-label">Publisher</label>
+                <div class="controls">
+                    <input id="textinput" name="publisher" type="text" placeholder="" class="input-xlarge" ng-model="reference.publisher">
+                    <span class="error" ng-show="submitReference.publisher.$error.required">required</span>
+                </div>
+            </div>
+
+
+            <!-- Button (Double) -->
+            <div class="control-group">
+                <label class="control-label"></label>
+                <div class="controls">
+                    <button id="button1id" name="button1id" class="btn btn-danger" ng-click="reset()">Clear</button>
+                    <button id="button2id" name="button2id" class="btn btn-success" ng-click="submit(reference)">Submit</button>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+
 </div>
 
-<!-- Text input-->
-<div class="control-group">
-  <label class="control-label">Author</label>
-  <div class="controls">
-      <div ng-repeat="auth in book.author">
-        <input id="textinput" name="auth[$index]" type="text" placeholder="" class="input-xlarge" ng-model="book.author[$index].name" required>
-        <span class="error" ng-show="submitReference.auth[$index].$error.required">required</span>
-      </div>
-    <i class="icon-plus-sign" ng-click="newAuthorField()"></i>
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="control-group">
-  <label class="control-label">Year published</label>
-  <div class="controls">
-    <input id="textinput" name="year" type="text" placeholder="" class="input-xlarge" ng-model="book.year" required>
-    <span class="error" ng-show="submitReference.pubYear.$error.required">required</span>
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="control-group">
-  <label class="control-label">Publisher</label>
-  <div class="controls">
-    <input id="textinput" name="publisher" type="text" placeholder="" class="input-xlarge" ng-model="book.publisher">
-    <span class="error" ng-show="submitReference.publisher.$error.required">required</span>
-  </div>
-</div>
-
-
-<!-- Button (Double) -->
-<div class="control-group">
-  <label class="control-label"></label>
-  <div class="controls">
-    <button id="button1id" name="button1id" class="btn btn-danger" ng-click="reset()">Clear</button>
-    <button id="button2id" name="button2id" class="btn btn-success" ng-click="submit(book)">Submit</button>
-  </div>
-</div>
-
-</fieldset>
-</form>
-
-</div>
-
-<pre>{{book | json }} </pre>
+<pre>{{reference | json }} </pre>
