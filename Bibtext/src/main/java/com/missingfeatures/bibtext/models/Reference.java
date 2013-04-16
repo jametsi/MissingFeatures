@@ -42,7 +42,7 @@ public class Reference implements Serializable {
 
     public Reference() {}
 
-    public Reference(String[] author, String title, int year, String bibtextID, 
+    public Reference(String author, String title, int year, String bibtextID, 
             String type, String booktitle, String publisher, String pages, 
             String address, String journal, int volume, int number) {
         
