@@ -1,6 +1,10 @@
+<div id="bibtext" class="well">
+    @Book{BA0,
+    <ul id="detailList">
+        <li ng-repeat="(field, value) in reference">
+            {{field}} = {{value}}
+        </li> 
+    </ul>
+    }
+</div>
 
-<span>@Book{BA04,</span>
-<ul id="detailList" ng-repeat="(field, value) in {'id':1, 'author':'bookauthor', 'title':'booktitle','year':2013,'publisher':'Otava'}">
-    <li>{{field}} = <span>{<span>{{value}}<span>},</span></li>
-</ul>
-<span>}</span>

@@ -14,9 +14,10 @@ function listController($scope, $http) {
     $scope.getListing();
 };
 
-function referenceDetailController($scope, $http) {
-    
-    //tobedone
+function referenceDetailController($scope, $http, $routeParams) {
+    $http.get('../rest/'+$routeParams.referenceId).success(function(data) {
+       $scope.reference = data; 
+    });
 };
 
 function submissionController($scope, $http, $location) {
