@@ -14,6 +14,11 @@ function listController($scope, $http) {
     $scope.getListing();
 };
 
+function referenceDetailController($scope, $http) {
+    
+    //tobedone
+};
+
 function submissionController($scope, $http, $location) {
  
     // Clear the book at first
