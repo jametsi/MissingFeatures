@@ -17,4 +17,6 @@ public interface ReferenceService {
 
     List<Reference> findAll();
     
+    Reference findOne(long referenceId);
+    
 }

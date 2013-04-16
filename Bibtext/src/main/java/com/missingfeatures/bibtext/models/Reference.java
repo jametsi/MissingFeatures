@@ -5,11 +5,14 @@
 package com.missingfeatures.bibtext.models;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -19,14 +22,11 @@ public class Reference implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    private List<String> authors;
     
-    @NotEmpty
-    private String author;
-    
-    @NotEmpty
     private String title;
     
-    @NotNull
     @Column(name="pubyear")
     private int year;
     
@@ -46,7 +46,8 @@ public class Reference implements Serializable {
             String type, String booktitle, String publisher, String pages, 
             String address, String journal, int volume, int number) {
         
-        this.author = author;
+        this.authors = new ArrayList<String>();
+        this.authors.add(author);
         this.title = title;
         this.year = year;
         this.bibtextID = bibtextID;
@@ -87,15 +88,20 @@ public class Reference implements Serializable {
     /**
      * @return the author
      */
-    public String getAuthor() {
-        return author;
+    public List<String> getAuthors() {
+        return authors;
     }
 
-    /**
-     * @param author the author to set
-     */
-    public void setAuthor(String author) {
-        this.author = author;
+    public void setAuthors(List<String> authors) {
+        this.authors = authors;
+    }
+    
+    public void addAuthor(String author) {
+        this.authors.add(type);
+    }
+    
+    public void deleteAuthor(String author) {
+        this.authors.remove(author);
     }
 
     /**

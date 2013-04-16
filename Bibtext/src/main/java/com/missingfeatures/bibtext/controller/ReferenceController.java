@@ -9,6 +9,7 @@ import com.missingfeatures.bibtext.service.ReferenceService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,6 +29,12 @@ public class ReferenceController {
     @ResponseBody
     public List<Reference> listReferences() { 
         return service.findAll();
+    }
+    
+    @RequestMapping(value ="/rest/{referenceId}", method = RequestMethod.GET, produces="application/json")
+    @ResponseBody
+    public Reference getSingleReference(@PathVariable long referenceId) { 
+        return service.findOne(referenceId);
     }
     
     @RequestMapping(value ="/rest", method = RequestMethod.POST, consumes="application/json")
