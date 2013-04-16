@@ -5,14 +5,14 @@
         <th>Title</th>
         <th>Author</th>
         <th>Publisher</th>
-        <th>Year published</th>
+        <th>Bibtext</th>
     </tr>
     <tr ng-repeat="reference in references">
         <td>{{reference.id}}</td>
         <td>{{reference.title}}</td>
         <td>{{reference.author}}</td>
-        <td>{{reference.publisher}}</td>
-        <td>{{reference.pubYear}}</td>
+        <td>{{reference.year}}</td>
+        <td><a href="#/references/{{reference.id}}">BibText</a></td>
     </tr>
 </table>
 <p class="alert alert-block" ng-show="!references.length">No references! You can add new references from the top menu</p>

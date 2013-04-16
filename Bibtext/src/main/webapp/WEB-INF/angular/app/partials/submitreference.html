@@ -29,6 +29,15 @@
 
 <!-- Text input-->
 <div class="control-group">
+  <label class="control-label">Year published</label>
+  <div class="controls">
+    <input id="textinput" name="year" type="text" placeholder="" class="input-xlarge" ng-model="book.year" required>
+    <span class="error" ng-show="submitReference.pubYear.$error.required">required</span>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
   <label class="control-label">Publisher</label>
   <div class="controls">
     <input id="textinput" name="publisher" type="text" placeholder="" class="input-xlarge" ng-model="book.publisher">
@@ -36,14 +45,6 @@
   </div>
 </div>
 
-<!-- Text input-->
-<div class="control-group">
-  <label class="control-label">Year published</label>
-  <div class="controls">
-    <input id="textinput" name="pubYear" type="text" placeholder="" class="input-xlarge" ng-model="book.pubYear" required>
-    <span class="error" ng-show="submitReference.pubYear.$error.required">required</span>
-  </div>
-</div>
 
 <!-- Button (Double) -->
 <div class="control-group">
