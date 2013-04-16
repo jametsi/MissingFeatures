@@ -5,11 +5,12 @@
 describe('my app', function() {
 
   beforeEach(function() {
-    browser().navigateTo('../front/index.html');
+    browser().navigateTo('/front/index.html');
   });
 
 
   it('should automatically redirect to /list when location hash/fragment is empty', function() {
+     //alert(browser().location().url());
     expect(browser().location().url()).toBe("/list");
   });
 
@@ -22,8 +23,9 @@ describe('my app', function() {
 
 
     it('should render listview when user navigates to /list', function() {
+        console.log(element('[ng-view] p:first').text());
       expect(element('[ng-view] p:first').text()).
-        toMatch(/This will be the reference list, it tries to get the array of references, and shows reference.bibtext./);
+        toMatch(/No references! You can add new references from the top/);
     });
 
   });
