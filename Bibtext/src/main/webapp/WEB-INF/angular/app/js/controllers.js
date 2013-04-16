@@ -40,7 +40,7 @@ function submissionController($scope, $http, $location) {
     
     function authorsToStringArray(reference) {
         var resultArray = [];
-        for(var i = 0 ; i < reference["author"].length ; ++i) {
+        for(var i = 0 ; i < reference.author.length ; ++i) {
             resultArray.push(reference.author[i].name);
         };
         return resultArray;
