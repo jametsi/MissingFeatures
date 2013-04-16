@@ -28,28 +28,29 @@ function submissionController($scope, $http, $location) {
  //   };
     
     $scope.newAuthorField = function() {
-        $scope.reference.author.push({"name": ""});
+        $scope.reference.authors.push({"name": ""});
     };
 
     // Empty the book data
     $scope.reset = function() {
         $scope.reference = {
-            "author" : [{"name": ""}]
+            "authors" : [{"name": ""}]
         };
     };
     
     function authorsToStringArray(reference) {
         var resultArray = [];
-        for(var i = 0 ; i < reference.author.length ; ++i) {
-            resultArray.push(reference.author[i].name);
+        for(var i = 0 ; i < reference.authors.length ; ++i) {
+            resultArray.push(reference.authors[i].name);
         };
         return resultArray;
     };
  
     // Submit the HTTP Post to backend REST URL
     $scope.submit = function(reference) {
-        reference["author"] = authorsToStringArray(reference);
-        
+        console.log(reference);
+        reference["authors"] = authorsToStringArray(reference);
+        console.log(reference);
         $http.post('../rest', angular.toJson(reference), {
             'Content-Type': 'application/json'
         }).success(function(date) { $location.path("/list")});
