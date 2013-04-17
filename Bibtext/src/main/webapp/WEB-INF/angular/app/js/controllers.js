@@ -3,17 +3,18 @@
 /* Controllers */
 
 function listController($scope, $http) {
+    
+    $scope.references = [];
 
     // Getter method for JSON data from backend
-    $scope.getListing = function() {
+    this.getListing = function() {
         $http.get('../rest').success(function(data) {
             $scope.references = data;
         });
     };
     // Default action after page load
-    $scope.getListing();
-}
-;
+    this.getListing();
+};
 
 function referenceDetailController($scope, $http) {
 
