@@ -118,6 +118,7 @@ describe('submissionController', function() {
         scope.reset();
 
         expect(scope.reference.title).toMatch("");
+        expect(scope.reference.authors.length).toBe(1);
         expect(scope.reference.authors.name).toMatch("");
         expect(scope.reference.year).toMatch("");
         expect(scope.reference.publisher).toMatch("");
