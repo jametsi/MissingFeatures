@@ -36,19 +36,18 @@ function submissionController($scope, $http, $location) {
         };
     };
 
-    function authorsToStringArray(reference) {
+    $scope.authorsToStringArray = function(reference) {
         var resultArray = [];
         for (var i = 0; i < reference.authors.length; ++i) {
             resultArray.push(reference.authors[i].name);
         }
         ;
         return resultArray;
-    }
-    ;
+    };
 
     // Submit the HTTP Post to backend REST URL
     $scope.submit = function(reference) {
-        reference["authors"] = authorsToStringArray(reference);
+        reference["authors"] = this.authorsToStringArray(reference);
         $http.post('../rest', angular.toJson(reference), {
             'Content-Type': 'application/json'
         }).success(function(date) {

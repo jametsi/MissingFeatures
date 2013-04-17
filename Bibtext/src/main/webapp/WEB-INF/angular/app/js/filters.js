@@ -8,4 +8,3 @@ angular.module('frontSideAngular.filters', []).
       return String(text).replace(/\%VERSION\%/mg, version);
     }
   }]);
-
