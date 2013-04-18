@@ -3,14 +3,14 @@
     <tr>
         <th>Id</th>
         <th>Title</th>
-        <th>Author</th>
-        <th>Publisher</th>
+        <th>Authors</th>
+        <th>Year published</th>
         <th>Bibtext</th>
     </tr>
     <tr ng-repeat="reference in references">
         <td>{{reference.id}}</td>
         <td>{{reference.title}}</td>
-        <td>{{reference.author}}</td>
+        <td>{{reference.authors|concat}}</td>
         <td>{{reference.year}}</td>
         <td><a href="#/references/{{reference.id}}">BibText</a></td>
     </tr>

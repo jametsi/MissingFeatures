@@ -1,8 +1,7 @@
 <div id="bibtext" class="well">
     @Book{BA0,
     <ul id="detailList">
-        {{reference.authors|concat}}
-        <li ng-repeat="(field, value) in reference">
+        <li ng-repeat="(field, value) in reference|bibtext">
             {{field}} = {{value}}
         </li> 
     </ul>

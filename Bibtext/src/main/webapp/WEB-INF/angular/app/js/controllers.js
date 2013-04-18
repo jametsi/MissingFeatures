@@ -16,8 +16,10 @@ function listController($scope, $http) {
 
 function referenceDetailController($scope, $http, $routeParams) {
     $http.get('../rest/'+$routeParams.referenceId).success(function(data) {
-       $scope.reference = data; 
+       $scope.reference = data;
+        console.log($scope.reference);
     });
+
 };
 
 function submissionController($scope, $http, $location) {
