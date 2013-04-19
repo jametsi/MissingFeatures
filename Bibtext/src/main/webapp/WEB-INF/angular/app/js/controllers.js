@@ -53,7 +53,7 @@ function submissionController($scope, $http, $location) {
         if ((!reference ||
                 reference.year.length < 4) ||
                 reference.authors[0].name.charAt(' ') === -1) {
-            return;
+            return "";
         }
         var year = reference.year.substring(2, 4);
         var result = "";
