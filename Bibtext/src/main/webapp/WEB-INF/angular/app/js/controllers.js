@@ -16,11 +16,13 @@ function listController($scope, $http) {
     this.getListing();
 };
 
-function referenceDetailController($scope, $http) {
+function referenceDetailController($scope, $http, $routeParams) {
+    $http.get('../rest/'+$routeParams.referenceId).success(function(data) {
+       $scope.reference = data;
+        console.log($scope.reference);
+    });
 
-    //tobedone
-}
-;
+};
 
 function submissionController($scope, $http, $location) {
 
@@ -58,5 +60,4 @@ function submissionController($scope, $http, $location) {
     // Default actions to run on start
     $scope.reset();
 
-}
-;
+};
