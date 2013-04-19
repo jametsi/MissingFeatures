@@ -27,7 +27,8 @@ angular.module('frontSideAngular.filters', []).
                 if (key === 'authors') {
                     result[key] = $filter('concat')(value);
                 }
-                else if ((value !== null) && (key !== 'id') && (value !== 0)) {
+                else if ((value !== null) && (key !== 'id') 
+                        && (value !== 0) && (key !== 'bibtextID')) {
                     result[key] = value;
                 }
             });
