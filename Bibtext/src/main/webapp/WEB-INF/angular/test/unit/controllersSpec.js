@@ -142,5 +142,47 @@ describe('submissionController', function() {
         expect(scope.reference.year).toMatch("");
         expect(scope.reference.publisher).toMatch("");
     }));
+    
+    it('should generate a proper Bibtex identifier for reference, comma separated authors', (function() {
+        var reference= {
+            "booktitle": "SIGCSE '11: Proceedings of the 42nd SIGCSE technical symposium on Computer science education",
+            "authors": [
+                {
+                    "name": "Vihavainen, Arto"
+                },
+                {
+                    "name": "Paksula, Matti"
+                },
+                {
+                    "name": "Luukkainen, Matti"
+                }],
+                "title": "Extreme Apprenticeship Method in Teaching Programming for Beginners.",
+                "year": "2011"
+        };
+        
+        reference.bibtextID = scope.generateBibtextID(reference);
+        expect(reference.bibtextID).toMatch("VPL11");
+    }));
+    
+        it('should generate a proper Bibtex identifier for reference, space separated authors', (function() {
+        var reference= {
+            "booktitle": "SIGCSE '11: Proceedings of the 42nd SIGCSE technical symposium on Computer science education",
+            "authors": [
+                {
+                    "name": "Arto Vihavainen"
+                },
+                {
+                    "name": "Matti Paksula"
+                },
+                {
+                    "name": "Matti Luukkainen"
+                }],
+                "title": "Extreme Apprenticeship Method in Teaching Programming for Beginners.",
+                "year": "2011"
+        };
+        
+        reference.bibtextID = scope.generateBibtextID(reference);
+        expect(reference.bibtextID).toMatch("VPL11");
+    }));
 
 });
