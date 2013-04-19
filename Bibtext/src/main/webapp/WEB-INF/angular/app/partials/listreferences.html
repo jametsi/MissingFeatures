@@ -1,3 +1,9 @@
+<div class="control-group">
+    <label class="control-label">Search</label>
+    <div class="controls">
+        <input id="textinput" name="search" type="text" placeholder="" class="input-xlarge" ng-model="query">
+    </div>
+</div>
 
 <table id="referenceList" class="table-striped table-bordered table" ng-hide="!references.length">
     <tr>
@@ -7,7 +13,7 @@
         <th>Year published</th>
         <th>Bibtext</th>
     </tr>
-    <tr ng-repeat="reference in references">
+    <tr ng-repeat="reference in references | filter:query">
         <td>{{reference.id}}</td>
         <td>{{reference.title}}</td>
         <td>{{reference.authors|concat}}</td>
