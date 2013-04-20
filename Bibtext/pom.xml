@@ -327,13 +327,12 @@
                 </executions>
                 <configuration>
                     <browsers>PhantomJS</browsers>
-                    <configFile>${basedir}/src/main/webapp/WEB-INF/angular/config/karma*.conf.js</configFile>
-                    <!--<configFile>${basedir}/src/main/webapp/WEB-INF/angular/config/karma.conf.js</configFile>-->
+                    <configFile>${basedir}/src/main/webapp/WEB-INF/angular/config/karma.conf.js</configFile>
                     <skipKarma>false</skipKarma>
                 </configuration>
             </plugin>
             
-<!--            <plugin>
+            <plugin>
                 <groupId>com.kelveden</groupId>
                 <artifactId>maven-karma-plugin</artifactId>
                 <version>1.0</version>
@@ -350,7 +349,7 @@
                     <configFile>${basedir}/src/main/webapp/WEB-INF/angular/config/karma-e2e.conf.js</configFile>
                     <skipKarma>false</skipKarma>
                 </configuration>
-            </plugin>-->
+            </plugin>
             
         </plugins>
     </build>
