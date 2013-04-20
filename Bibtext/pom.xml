@@ -291,7 +291,7 @@
                 <executions>
                     <execution>
                         <id>start-jetty</id>
-                        <phase>pre-test</phase>
+                        <phase>pre-integration-test</phase>
                         <goals>
                             <goal>run</goal>
                         </goals>
@@ -303,7 +303,7 @@
 
                     <execution>
                         <id>stop-jetty</id>
-                        <phase>post-test</phase>
+                        <phase>post-integration-test</phase>
                         <goals>
                             <goal>stop</goal>
                         </goals>
@@ -319,6 +319,7 @@
                 <version>1.0</version>
                 <executions>
                     <execution>
+                        <phase>test</phase>
                         <goals>
                             <goal>start</goal>
                         </goals>
@@ -327,7 +328,7 @@
                 <configuration>
                     <browsers>PhantomJS</browsers>
                     <configFile>${basedir}/src/main/webapp/WEB-INF/angular/config/karma.conf.js</configFile>
-                    <skipKarma>false</skipKarma>
+                    <skipKarma>true</skipKarma>
                 </configuration>
             </plugin>
             
@@ -337,6 +338,7 @@
                 <version>1.0</version>
                 <executions>
                     <execution>
+                        <phase>integration-test</phase>
                         <goals>
                             <goal>start</goal>
                         </goals>
