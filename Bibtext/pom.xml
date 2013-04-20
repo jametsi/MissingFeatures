@@ -327,6 +327,7 @@
                 <configuration>
                     <browsers>PhantomJS</browsers>
                     <configFile>${basedir}/src/main/webapp/WEB-INF/angular/config/karma.conf.js</configFile>
+                    <configFile>${basedir}/src/main/webapp/WEB-INF/angular/config/karma-e2e.conf.js</configFile>
                     <skipKarma>false</skipKarma>
                 </configuration>
             </plugin>
