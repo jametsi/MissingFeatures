@@ -188,11 +188,6 @@
         </dependency>
         <dependency>
             <groupId>com.kelveden</groupId>
-            <artifactId>testacular-maven-plugin</artifactId>
-            <version>0.4</version>
-        </dependency>
-        <dependency>
-            <groupId>com.kelveden</groupId>
             <artifactId>maven-karma-plugin</artifactId>
             <version>1.0</version>
         </dependency>
