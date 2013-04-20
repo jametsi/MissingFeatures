@@ -192,6 +192,11 @@
             <version>0.4</version>
         </dependency>
         <dependency>
+            <groupId>com.kelveden</groupId>
+            <artifactId>maven-karma-plugin</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
             <version>6.0</version>
@@ -253,6 +258,24 @@
                     </execution>
                 </executions>
             </plugin>
+            
+            <plugin>
+                <groupId>com.kelveden</groupId>
+                <artifactId>maven-karma-plugin</artifactId>
+                <version>1.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>start</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <browsers>PhantomJS</browsers>
+                    <configFile>${basedir}/main/webapp/WEB-INF/angular/config/karma.conf.js</configFile>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
     <reporting>

@@ -5,7 +5,7 @@
 describe('my app', function() {
 
   beforeEach(function() {
-    browser().navigateTo('../front/index.html');
+    browser().navigateTo('../../app/index.html');
   });
 
 
@@ -23,23 +23,11 @@ describe('my app', function() {
 
     it('should render listview when user navigates to /list', function() {
       expect(element('[ng-view] p:first').text()).
-        toMatch(/This will be the reference list, it tries to get the array of references, and shows reference.bibtext./);
+        toMatch(/No references! You can add new references from the top menu/);
     });
 
   });
 
 
-//  describe('view2', function() {
-//
-//    beforeEach(function() {
-//      browser().navigateTo('#/view2');
-//    });
-//
-//
-//    it('should render view2 when user navigates to /view2', function() {
-//      expect(element('[ng-view] p:first').text()).
-//        toMatch(/partial for view 2/);
-//    });
-//
-//  });
+
 });
