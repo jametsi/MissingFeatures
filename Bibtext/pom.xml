@@ -338,7 +338,7 @@
                 <executions>
                     <execution>
                         <goals>
-                            <goal>integration-test</goal>
+                            <goal>start</goal>
                         </goals>
                     </execution>
                 </executions>
