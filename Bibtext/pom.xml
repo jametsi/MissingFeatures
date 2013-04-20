@@ -255,17 +255,17 @@
             </plugin>
 
             <!-- Jetty -->
-            <plugin>
+<!--            <plugin>
                 <groupId>org.mortbay.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>7.4.2.v20110526</version>
                 <configuration>
-                    <!--
+                    
                     
                     POISTA NÄMÄ KOMMENTEISTA
                     jos haluat että jetty käynnistää sovelluksen uudelleen 
                     muutosten yhteydessä
-                    -->
+                    
                     <scanIntervalSeconds>5</scanIntervalSeconds>
                     <reload>automatic</reload>
                     
@@ -305,7 +305,7 @@
                     </execution>
 
                 </executions>                
-            </plugin>
+            </plugin>-->
             
             <!-- maven-karma-plugin -->
             <plugin>
