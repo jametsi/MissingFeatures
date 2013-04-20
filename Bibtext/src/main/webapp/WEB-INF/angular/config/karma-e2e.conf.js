@@ -13,7 +13,7 @@ browsers = ['PhantomJS'];
 singleRun = true;
 
 proxies = {
-  '/': 'http://localhost:8080/Bibtext/testing/'
+  '/': 'http://localhost:8081/Bibtext/testing/'
 };
 
 junitReporter = {
