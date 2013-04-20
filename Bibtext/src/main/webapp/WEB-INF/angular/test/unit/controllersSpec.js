@@ -29,7 +29,7 @@ describe('listController', function() {
             $scope: scope
         });
         $httpBackend.flush();
-        expect(scope.references.length).toBe(4);
+        expect(scope.references.length).toBe(5);
 
     }));
 
