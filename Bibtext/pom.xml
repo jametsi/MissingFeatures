@@ -325,7 +325,7 @@
                     <configFile>${basedir}/src/main/webapp/WEB-INF/angular/config/karma.conf.js</configFile>
                     <reporters>junit</reporters>
                     <reporters>progress</reporters>
-                    <skipKarma>false</skipKarma>
+                    <skipKarma>true</skipKarma>
                 </configuration>
             </plugin>
             
