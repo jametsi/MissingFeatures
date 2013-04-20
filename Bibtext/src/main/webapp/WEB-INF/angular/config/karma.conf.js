@@ -15,7 +15,7 @@ autoWatch = true;
 browsers = ['PhantomJS'];
 
 preprocessors = {
-  '/app/js/*.js': 'coverage'
+  '**/app/js/*.js': 'coverage'
 };
 
 junitReporter = {
