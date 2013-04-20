@@ -319,7 +319,7 @@
                 <version>1.0</version>
                 <executions>
                     <execution>
-                        <phase>integration-test</phase>
+                        <phase>test</phase>
                         <goals>
                             <goal>start</goal>
                         </goals>
