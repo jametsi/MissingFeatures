@@ -15,6 +15,7 @@ autoWatch = true;
 browsers = ['PhantomJS'];
 
 junitReporter = {
-  outputFile: 'test_out/unit.xml',
+//  outputFile: 'test_out/unit.xml',
+  outputFile: '../../../../../target/surefire-reports/jasmine-unit.xml',
   suite: 'unit'
 };
