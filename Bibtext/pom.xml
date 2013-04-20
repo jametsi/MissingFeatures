@@ -323,7 +323,7 @@
                 <configuration>
                     <browsers>PhantomJS</browsers>
                     <configFile>${basedir}/src/main/webapp/WEB-INF/angular/config/karma.conf.js</configFile>
-                    <reporters>junit, progress</reporters>
+                    <reporters>junit progress</reporters>
                     <skipKarma>false</skipKarma>
                 </configuration>
             </plugin>
