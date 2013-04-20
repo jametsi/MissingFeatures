@@ -14,8 +14,18 @@ autoWatch = true;
 
 browsers = ['PhantomJS'];
 
+preprocessors = {
+  '**/tmp/scripts/**/*.js': 'coverage'
+};
+
 junitReporter = {
 //  outputFile: 'test_out/unit.xml',
   outputFile: '../../../../../target/surefire-reports/jasmine-unit.xml',
   suite: 'unit'
+};
+
+coverageReporter = {
+  type: 'cobertura',
+  dir: '../../../../../target/cobertura/',
+  file: 'front-coverage.xml'
 };
