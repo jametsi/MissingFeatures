@@ -323,7 +323,7 @@
                 <configuration>
                     <browsers>PhantomJS</browsers>
                     <configFile>${basedir}/src/main/webapp/WEB-INF/angular/config/karma.conf.js</configFile>
-                    <skipKarma>true</skipKarma>
+                    <skipKarma>false</skipKarma>
                 </configuration>
             </plugin>
             
