@@ -26,6 +26,6 @@ junitReporter = {
 
 coverageReporter = {
   type: 'cobertura',
-  dir: '../../../../../target/cobertura/',
+  dir: '../../../../../target/site/cobertura/',
   file: 'front-coverage.xml'
 };
