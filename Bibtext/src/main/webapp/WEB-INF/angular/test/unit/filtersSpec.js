@@ -5,14 +5,14 @@
 describe('filter', function() {
   beforeEach(module('frontSideAngular.filters'));
 
-  describe('interpolate', function() {
+  describe('concat', function() {
     beforeEach(module(function($provide) {
-      $provide.value('version', 'TEST_VER');
+      $provide.value('authors', ["Jami Karvanen", "Ville Heikkinen"]);
     }));
 
 
-    it('should replace VERSION', inject(function(interpolateFilter) {
-      expect(interpolateFilter('before %VERSION% after')).toEqual('before TEST_VER after');
+    it('should replace AUTHORS', inject(function(concatFilter) {
+      expect(concatFilter('before %AUTHORS% after')).toEqual('before Jami Karvanen, Ville Heikkinen after');
     }));
   });
 });
