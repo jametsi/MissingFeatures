@@ -20,7 +20,6 @@ function listController($scope, $http) {
 function referenceDetailController($scope, $http, $routeParams) {
     $http.get('../rest/' + $routeParams.referenceId).success(function(data) {
         $scope.reference = data;
-        console.log($scope.reference);
     });
 
 }
@@ -36,7 +35,8 @@ function submissionController($scope, $http, $location) {
     // Empty the book data
     $scope.reset = function() {
         $scope.reference = {
-            "authors": [{"name": ""}]
+            "authors": [{"name": ""}],
+            "type": "Book"
         };
     };
 
@@ -78,7 +78,7 @@ function submissionController($scope, $http, $location) {
         }).success(function(date) {
             $location.path("/list")
         });
-        $scope.reset();
+        //$scope.reset();
     };
     // Default actions to run on start
     $scope.reset();

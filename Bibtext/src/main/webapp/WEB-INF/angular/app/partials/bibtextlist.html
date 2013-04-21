@@ -1,7 +1,12 @@
+<div class="control-group">
+    <label class="control-label">Search</label>
+    <div class="controls">
+        <input id="textinput" name="search" type="text" placeholder="" class="input-xlarge" ng-model="query">
+    </div>
+</div>
 <div class="well">
-    <div id="bibtext" ng-repeat="reference in references">
-        @Book{
-        {{reference.bibtextID}},
+    <div id="bibtext" ng-repeat="reference in references|filter:query">
+        @{{reference.type}}<span>{</span>{{reference.bibtextID}},
         <ul id="detailList">
             <li ng-repeat="(field, value) in reference|bibtext">
                 {{field}} = {{value}},

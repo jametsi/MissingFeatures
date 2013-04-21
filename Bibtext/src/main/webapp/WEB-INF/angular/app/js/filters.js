@@ -19,11 +19,19 @@ angular.module('frontSideAngular.filters', []).
             var result = {};
             angular.forEach(reference, function(value, key) {
 
-                if (key === 'authors') {
-                    result[key] = $filter('concat')(value);
-                }
-                else if ((value !== null) && (key !== 'id') 
-                        && (value !== 0) && (key !== 'bibtextID')) {
+                if ((value !== null) 
+                        && (key !== 'id') 
+                        && (value !== 0) 
+                        && (key !== 'bibtextID')) {
+                    if (key === 'authors') {
+                        value = $filter('concat')(value);
+                    }
+                    if (typeof value === 'string') {
+                        value = value.replace(/ä/g, "\\\"{a}");
+                        value = value.replace(/Ä/g, "\\\"{A}");
+                        value = value.replace(/ö/g, "\\\"{o}");
+                        value = value.replace(/Ö/g, "\\\"{O}");
+                    }
                     result[key] = value;
                 }
             });

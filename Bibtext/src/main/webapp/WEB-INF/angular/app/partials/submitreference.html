@@ -6,6 +6,18 @@
             <!-- Form Name -->
             <legend>Submit new reference</legend>
 
+            <!-- Select Basic -->
+            <div class="control-group">
+              <label class="control-label">Type</label>
+              <div class="controls">
+                <select id="type" name="type" class="input-xlarge" ng-model="reference.type">
+                  <option>Book</option>
+                  <option>Inproceedings</option>
+                  <option>Article</option>
+                </select>
+              </div>
+            </div>
+            
             <!-- Text input-->
             <div class="control-group">
                 <label class="control-label">Title</label>
@@ -20,7 +32,7 @@
                 <label class="control-label">Author</label>
                 <div class="controls">
                     <div ng-repeat="auth in reference.authors">
-                        <input id="textinput" name="auth[$index]" type="text" placeholder="" class="input-xlarge" ng-model="reference.authors[$index].name" required>
+                        <input id="textinput" name="auth[$index]" type="text" placeholder="Firstname Lastname" class="input-xlarge" ng-model="reference.authors[$index].name" required>
                         <span class="error" ng-show="submitReference.auth[$index].$error.required">required</span>
                     </div>
                     <i class="icon-plus-sign" ng-click="newAuthorField()"></i>
@@ -32,7 +44,7 @@
                 <label class="control-label">Year published</label>
                 <div class="controls">
                     <input id="textinput" name="year" type="text" placeholder="" class="input-xlarge" ng-model="reference.year" required>
-                    <span class="error" ng-show="submitReference.pubYear.$error.required">required</span>
+                    <span class="error" ng-show="submitReference.year.$error.required">required</span>
                 </div>
             </div>
 
@@ -42,6 +54,51 @@
                 <div class="controls">
                     <input id="textinput" name="publisher" type="text" placeholder="" class="input-xlarge" ng-model="reference.publisher">
                     <span class="error" ng-show="submitReference.publisher.$error.required">required</span>
+                </div>
+            </div>
+            
+            <!-- Text input-->
+            <div class="control-group">
+                <label class="control-label">Journal</label>
+                <div class="controls">
+                    <input id="textinput" name="journal" type="text" placeholder="" class="input-xlarge" ng-model="reference.journal">
+                    <span class="error" ng-show="submitReference.journal.$error.required">required</span>
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="control-group">
+                <label class="control-label">Volume</label>
+                <div class="controls">
+                    <input id="textinput" name="publisher" type="text" placeholder="" class="input-xlarge" ng-model="reference.volume">
+                    <span class="error" ng-show="submitReference.volume.$error.required">required</span>
+                </div>
+            </div>
+                        
+            <!-- Text input-->
+            <div class="control-group">
+                <label class="control-label">Number</label>
+                <div class="controls">
+                    <input id="textinput" name="publisher" type="text" placeholder="" class="input-xlarge" ng-model="reference.number">
+                    <span class="error" ng-show="submitReference.number.$error.required">required</span>
+                </div>
+            </div>
+            
+            <!-- Text input-->
+            <div class="control-group">
+                <label class="control-label">Pages</label>
+                <div class="controls">
+                    <input id="textinput" name="publisher" type="text" placeholder="" class="input-xlarge" ng-model="reference.pages">
+                    <span class="error" ng-show="submitReference.pages.$error.required">required</span>
+                </div>
+            </div>
+            
+            <!-- Text input-->
+            <div class="control-group">
+                <label class="control-label">Address</label>
+                <div class="controls">
+                    <input id="textinput" name="publisher" type="text" placeholder="" class="input-xlarge" ng-model="reference.address">
+                    <span class="error" ng-show="submitReference.address.$error.required">required</span>
                 </div>
             </div>
 

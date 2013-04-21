@@ -1,6 +1,5 @@
 <div id="bibtext" class="well">
-    @Book{
-    {{reference.bibtextID}},
+    @{{reference.type}}<span>{</span>{{reference.bibtextID}},
     <ul id="detailList">
         <li ng-repeat="(field, value) in reference|bibtext">
             {{field}} = {{value}},
