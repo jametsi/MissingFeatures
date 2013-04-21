@@ -16,7 +16,7 @@
     <mvc:resources mapping="/front/**" location="/WEB-INF/angular/app/" />
     
     <!-- resourcemapping for the front tests -->
-    <mvc:resources mapping="/testing/**" location="/WEB-INF/angular/" />
+    <mvc:resources mapping="/test/**" location="/WEB-INF/angular/test/e2e/" />
     
     <!-- resourcemapping for the angular libs -->
     <mvc:resources mapping="/lib/**" location="/WEB-INF/angular/test/lib/" />

@@ -20,9 +20,9 @@ public class AngularController {
         return "redirect:/front/index.html";
     }
     
-//    @RequestMapping(value ="/test", method = RequestMethod.GET)
-//    public String redirectToTestRunner() { 
-//        return "redirect:/testing/";
-//    }
+    @RequestMapping(value ="/test", method = RequestMethod.GET)
+    public String redirectToTestRunner() { 
+        return "redirect:/test/runner.html";
+    }
     
 }

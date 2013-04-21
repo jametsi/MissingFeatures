@@ -2,10 +2,10 @@
 
 /* http://docs.angularjs.org/guide/dev_guide.e2e-testing */
 
-describe('my app', function() {
+describe('Bibtext front', function() {
 
   beforeEach(function() {
-    browser().navigateTo('../../app/index.html');
+    browser().navigateTo('../');
   });
 
 
@@ -14,7 +14,7 @@ describe('my app', function() {
   });
 
 
-  describe('list', function() {
+  describe('Reference list', function() {
 
     beforeEach(function() {
       browser().navigateTo('#/list');
