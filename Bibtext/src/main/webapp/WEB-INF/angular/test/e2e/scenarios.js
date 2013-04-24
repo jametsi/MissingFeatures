@@ -34,7 +34,7 @@ describe('Bibtext front', function() {
             element('#submitlink').click();
         });
 
-        it('should show submit page', function() {
+        it('should show submit page after clicking submit-link', function() {
           expect(browser().location().url()).toBe("/submit");
         });
         
