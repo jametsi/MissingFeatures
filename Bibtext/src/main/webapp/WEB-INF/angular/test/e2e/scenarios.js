@@ -50,6 +50,8 @@ describe('Bibtext front', function() {
                 toMatch(/jokutitle/);
             expect(element('#authorfield').text()).
                 toMatch(/jokuauthor jokuauthor/);
+            expect(element('#yearfield').text()).
+                toMatch(/2013/);
         });
 
     });
