@@ -39,7 +39,8 @@ function submissionController($scope, $http, $location) {
             "type": "Book"
         };
     };
-
+    
+    // Take a reference, grab authorObjs and return array of authors
     $scope.authorsToStringArray = function(reference) {
         var resultArray = [];
         for (var i = 0; i < reference.authors.length; ++i) {
@@ -49,6 +50,11 @@ function submissionController($scope, $http, $location) {
         return resultArray;
     };
 
+
+    // For comma separated authors, take [0][1] from string,
+    // for others take [1][0] for first Lastname char
+    // concatenate last two digits of year
+    
     $scope.generateBibtextID = function(reference) {
         if ((!reference ||
                 reference.year.length < 4) ||
@@ -83,5 +89,4 @@ function submissionController($scope, $http, $location) {
     // Default actions to run on start
     $scope.reset();
 
-}
-;
+};
