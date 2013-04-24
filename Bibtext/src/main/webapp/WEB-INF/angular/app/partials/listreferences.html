@@ -1,7 +1,7 @@
 <div class="control-group">
     <label class="control-label">Search</label>
     <div class="controls">
-        <input id="textinput" name="search" type="text" placeholder="" class="input-xlarge" ng-model="query">
+        <input id="textinput" name="search" type="text" placeholder="" class="search-query" ng-model="query">
     </div>
 </div>
 
@@ -14,10 +14,10 @@
         <th>Bibtext</th>
     </tr>
     <tr ng-repeat="reference in references | filter:query">
-        <td>{{reference.type}}</td>
-        <td>{{reference.title}}</td>
-        <td>{{reference.authors|concat}}</td>
-        <td>{{reference.year}}</td>
+        <td id="typefield">{{reference.type}}</td>
+        <td id="titlefield">{{reference.title}}</td>
+        <td id="authorfield">{{reference.authors|concat}}</td>
+        <td id="yearfield">{{reference.year}}</td>
         <td><a href="#/references/{{reference.id}}">BibText</a></td>
     </tr>
 </table>

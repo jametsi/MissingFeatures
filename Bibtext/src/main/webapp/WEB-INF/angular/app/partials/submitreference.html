@@ -67,7 +67,7 @@
             </div>
 
             <!-- Text input-->
-            <div class="control-group">
+            <div class="control-group" ng-show="isArticle()">
                 <label class="control-label">Volume</label>
                 <div class="controls">
                     <input id="textinput" name="publisher" type="text" placeholder="" class="input-xlarge" ng-model="reference.volume">
@@ -107,8 +107,8 @@
             <div class="control-group">
                 <label class="control-label"></label>
                 <div class="controls">
-                    <button id="button1id" name="button1id" class="btn btn-danger" ng-click="reset()">Clear</button>
-                    <button id="button2id" name="button2id" class="btn btn-success" ng-click="submit(reference)">Submit</button>
+                    <button id="clearbutton" name="button1id" class="btn btn-danger" ng-click="reset()">Clear</button>
+                    <button id="submitbutton" name="button2id" class="btn btn-success" ng-click="submit(reference)">Submit</button>
                 </div>
             </div>
 
