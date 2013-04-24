@@ -39,13 +39,17 @@ describe('Bibtext front', function() {
         });
         
         it('should accept a reference with title, author & published fields', function() {
-          input('reference.title').enter('jokutitle');
-          input('reference.authors[$index].name').enter('jokuauthor jokuauthor');
-          input('reference.year').enter('2013');
-          element("#submitbutton", "Submit Button").click();
-          expect(browser().location().url()).toBe("/list");
-          expect(element('#typefield').text()).
-            toMatch(/Book/);
+            input('reference.title').enter('jokutitle');
+            input('reference.authors[$index].name').enter('jokuauthor jokuauthor');
+            input('reference.year').enter('2013');
+            element("#submitbutton", "Submit Button").click();
+            expect(browser().location().url()).toBe("/list");
+            expect(element('#typefield').text()).
+                toMatch(/Book/);
+            expect(element('#titlefield').text()).
+                toMatch(/jokutitle/);
+            expect(element('#authorfield').text()).
+                toMatch(/jokuauthor jokuauthor/);
         });
 
     });
