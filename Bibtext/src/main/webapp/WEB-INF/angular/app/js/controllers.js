@@ -27,6 +27,9 @@ function referenceDetailController($scope, $http, $routeParams) {
 
 function submissionController($scope, $http, $location) {
 
+    $scope.isArticle = function() {
+        return $scope.reference.type === 'Article';
+    }
     // New author object
     $scope.newAuthorField = function() {
         $scope.reference.authors.push({"name": ""});
