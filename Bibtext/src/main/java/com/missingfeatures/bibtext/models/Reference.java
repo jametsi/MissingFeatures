@@ -25,6 +25,8 @@ public class Reference implements Serializable {
 
     private List<String> authors;
     
+    private List<String> tags;
+    
     private String title;
     
     @Column(name="pubyear")
@@ -59,6 +61,14 @@ public class Reference implements Serializable {
         this.journal = journal;
         this.volume = volume;
         this.number = number;
+    }
+
+    public List<String> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<String> tags) {
+        this.tags = tags;
     }
     
 

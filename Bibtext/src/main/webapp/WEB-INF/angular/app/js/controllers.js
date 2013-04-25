@@ -41,6 +41,9 @@ function referenceDetailController($scope, $http, $routeParams) {
 ;
 
 function submissionController($scope, $http, $location, $routeParams) {
+    
+    // if routeParams.referenceId exists, we are modifying an existing reference
+    // hence, we need to get that single reference to pre-fill the form
     if($routeParams.referenceId !== undefined) {
         $scope.modify = true;
         $http.get('../rest/' + $routeParams.referenceId).success(function(data) {
@@ -54,6 +57,9 @@ function submissionController($scope, $http, $location, $routeParams) {
             $scope.reference.authors = authors;
         });
     }
+    
+    // These functions are used to show certain fields only when then reference
+    // type needs them
     $scope.isArticle = function() {
         return $scope.reference.type === 'Article';
     }
@@ -63,24 +69,31 @@ function submissionController($scope, $http, $location, $routeParams) {
     $scope.isArticleOrInProceedings = function() {
         return ($scope.reference.type === 'Article') || ($scope.reference.type === 'Inproceedings');
     }
+    
     // New author object
     $scope.newAuthorField = function() {
         $scope.reference.authors.push({"name": ""});
+    };
+    
+    // New tag object
+    $scope.newTagField = function() {
+        $scope.reference.tags.push({});  
     };
 
     // Empty the book data
     $scope.reset = function() {
         $scope.reference = {
             "authors": [{"name": ""}],
+            "tags": [{"name": ""}],
             "type": "Book"
         };
     };
     
     // Take a reference, grab authorObjs and return array of authors
-    $scope.authorsToStringArray = function(reference) {
+    $scope.toStringArray = function(nameArray) {
         var resultArray = [];
-        for (var i = 0; i < reference.authors.length; ++i) {
-            resultArray.push(reference.authors[i].name);
+        for (var i = 0; i < nameArray.length; ++i) {
+            resultArray.push(nameArray[i].name);
         }
         ;
         return resultArray;
@@ -114,7 +127,8 @@ function submissionController($scope, $http, $location, $routeParams) {
     // Submit the HTTP Post to backend REST URL
     $scope.submit = function(reference) {
         reference.bibtextID = this.generateBibtextID(reference);
-        reference["authors"] = this.authorsToStringArray(reference);
+        reference["authors"] = this.toStringArray(reference.authors);
+        reference["tags"] = this.toStringArray(reference.tags);
 
         if ($scope.modify) {
             $http.post('../rest/'+$scope.reference.id, angular.toJson(reference), {

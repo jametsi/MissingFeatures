@@ -19,5 +19,16 @@
     margin-left: 10px;
 }
 
+#infofields {
+    width: auto;
+}
+#tags {
+    padding-top: 80px;
+}
+
+.clearfix {
+    clear: both;
+}
+
 
 
