@@ -6,13 +6,17 @@
 }
 
 #referenceList {
-    width:  60%;
+    width: auto;
     margin-top:50px;
 }
 
 #detailList {
     list-style: none;
     margin-bottom: 0px;
+}
+
+#referenceList button {
+    margin-left: 10px;
 }
 
 

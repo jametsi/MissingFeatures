@@ -7,13 +7,12 @@ function listController($scope, $http) {
     $scope.references = [];
 
     // Getter method for JSON data from backend
-    this.getListing = function() {
+    $scope.getListing = function() {
         $http.get('../rest').success(function(data) {
             $scope.references = data;
         });
     };
-    // Default action after page load
-    this.getListing();
+
     
     $scope.parseText = function() {
         
@@ -29,6 +28,14 @@ function listController($scope, $http) {
         var blob = bb.getBlob("text/plain;charset=" + document.characterSet);
          saveAs(blob, "kakka.bib");
     };
+        // Default action after page load
+    $scope.getListing();
+    
+    $scope.deleteReference = function(id) {
+        $http['delete']('../rest/'+id).success(function() {
+            $scope.getListing();
+        });
+    };
 };
 
 function referenceDetailController($scope, $http, $routeParams) {
@@ -39,8 +46,20 @@ function referenceDetailController($scope, $http, $routeParams) {
 }
 ;
 
-function submissionController($scope, $http, $location) {
-
+function submissionController($scope, $http, $location, $routeParams) {
+    if($routeParams.referenceId !== undefined) {
+        $scope.modify = true;
+        $http.get('../rest/' + $routeParams.referenceId).success(function(data) {
+            $scope.reference = data;
+            var authors = [];
+            console.log($scope.reference.authors);
+            for(var i = 0; i < $scope.reference.authors.length;i++) {
+                authors.push({name:$scope.reference.authors[i]});
+            }
+            
+            $scope.reference.authors = authors;
+        });
+    }
     $scope.isArticle = function() {
         return $scope.reference.type === 'Article';
     }
@@ -78,6 +97,7 @@ function submissionController($scope, $http, $location) {
                 reference.authors[0].name.charAt(' ') === -1) {
             return "";
         }
+        reference.year += "";
         var year = reference.year.substring(2, 4);
         var result = "";
         for (var i = 0; i < reference.authors.length; ++i) {
@@ -96,14 +116,27 @@ function submissionController($scope, $http, $location) {
         reference.bibtextID = this.generateBibtextID(reference);
         reference["authors"] = this.authorsToStringArray(reference);
 
+        if ($scope.modify) {
+            $http.post('../rest/'+$scope.reference.id, angular.toJson(reference), {
+            'Content-Type': 'application/json'
+            }).success(function(date) {
+                $location.path("/list")
+            });
+        }
         $http.post('../rest', angular.toJson(reference), {
             'Content-Type': 'application/json'
         }).success(function(date) {
             $location.path("/list")
         });
-        //$scope.reset();
+        
     };
     // Default actions to run on start
     $scope.reset();
+    
+    $scope.getReference = function(id) {
+        $http.get('../rest/'+id).success(function(data) {
+            $scope.reference = data;
+        });
+    };
 
 };

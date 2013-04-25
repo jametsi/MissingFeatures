@@ -19,4 +19,6 @@ public interface ReferenceService {
     
     Reference findOne(long referenceId);
     
+    void delete(long referenceId);
+    
 }
