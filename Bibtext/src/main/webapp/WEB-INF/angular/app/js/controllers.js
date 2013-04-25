@@ -57,6 +57,12 @@ function submissionController($scope, $http, $location, $routeParams) {
     $scope.isArticle = function() {
         return $scope.reference.type === 'Article';
     }
+    $scope.isInproceedings = function() {
+        return $scope.reference.type === 'Inproceedings';
+    }
+    $scope.isArticleOrInProceedings = function() {
+        return ($scope.reference.type === 'Article') || ($scope.reference.type === 'Inproceedings');
+    }
     // New author object
     $scope.newAuthorField = function() {
         $scope.reference.authors.push({"name": ""});

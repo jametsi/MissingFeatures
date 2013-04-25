@@ -26,6 +26,15 @@
                     <span class="error" ng-show="submitReference.title.$error.required">required</span>
                 </div>
             </div>
+            
+            <!-- Text input-->
+            <div class="control-group" ng-show="isInproceedings()">
+                <label class="control-label">Book Title</label>
+                <div class="controls">
+                    <input id="booktitleinput" name="publisher" type="text" placeholder="" class="input-xlarge" ng-model="reference.booktitle">
+                    <span class="error" ng-show="submitReference.booktitle.$error.required">required</span>
+                </div>
+            </div>
 
             <!-- Text input-->
             <div class="control-group">
@@ -76,7 +85,7 @@
             </div>
                         
             <!-- Text input-->
-            <div class="control-group">
+            <div class="control-group" ng-show="isArticle()">
                 <label class="control-label">Number</label>
                 <div class="controls">
                     <input id="numberinput" name="publisher" type="text" placeholder="" class="input-xlarge" ng-model="reference.number">
@@ -85,7 +94,7 @@
             </div>
             
             <!-- Text input-->
-            <div class="control-group">
+            <div class="control-group" ng-show="isArticleOrInproceedings()">
                 <label class="control-label">Pages</label>
                 <div class="controls">
                     <input id="pagesinput" name="publisher" type="text" placeholder="" class="input-xlarge" ng-model="reference.pages">
