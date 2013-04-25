@@ -14,8 +14,22 @@ function listController($scope, $http) {
     };
     // Default action after page load
     this.getListing();
-}
-;
+    
+    $scope.parseText = function() {
+        
+        var rootElement = angular.element('#bibtext');
+        return rootElement.text().replace("\n\n", "\n");
+       
+    };
+    
+    $scope.save = function() {
+        var bb = new BlobBuilder();
+        var payloadText = this.parseText();
+        bb.append(payloadText)
+        var blob = bb.getBlob("text/plain;charset=" + document.characterSet);
+         saveAs(blob, "kakka.bib");
+    };
+};
 
 function referenceDetailController($scope, $http, $routeParams) {
     $http.get('../rest/' + $routeParams.referenceId).success(function(data) {
