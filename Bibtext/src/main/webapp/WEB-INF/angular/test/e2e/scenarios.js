@@ -44,13 +44,13 @@ describe('Bibtext front', function() {
             input('reference.year').enter('2013');
             element("#submitbutton", "Submit Button").click();
             expect(browser().location().url()).toBe("/list");
-            expect(element('#typefield').text()).
+            expect(element('#referenceList tr:last-child .typefield').text()).
                 toMatch(/Book/);
-            expect(element('#titlefield').text()).
+            expect(element('#referenceList tr:last-child .titlefield').text()).
                 toMatch(/jokutitle/);
-            expect(element('#authorfield').text()).
+            expect(element('#referenceList tr:last-child .authorfield').text()).
                 toMatch(/jokuauthor jokuauthor/);
-            expect(element('#yearfield').text()).
+            expect(element('#referenceList tr:last-child .yearfield').text()).
                 toMatch(/2013/);
         });
 
@@ -73,18 +73,19 @@ describe('Bibtext front', function() {
             input('reference.year').enter('2013');
             element("#submitbutton", "Submit Button").click();
             expect(browser().location().url()).toBe("/list");
-            expect(element('#typefield').text()).
+            expect(element('#referenceList tr:last-child .typefield').text()).
                 toMatch(/Article/);
-            expect(element('#titlefield').text()).
+            expect(element('#referenceList tr:last-child .titlefield').text()).
                 toMatch(/jokutitle/);
-            expect(element('#authorfield').text()).
+            expect(element('#referenceList tr:last-child .authorfield').text()).
                 toMatch(/jokuauthor jokuauthor/);
-            expect(element('#yearfield').text()).
+            expect(element('#referenceList tr:last-child .yearfield').text()).
                 toMatch(/2013/);
         });
 
     });
- describe('Submit Inproceedings reference', function() {
+    
+    describe('Submit Inproceedings reference', function() {
 
         beforeEach(function() {
             element('#submitlink').click();
@@ -101,14 +102,40 @@ describe('Bibtext front', function() {
             input('reference.year').enter('2013');
             element("#submitbutton", "Submit Button").click();
             expect(browser().location().url()).toBe("/list");
-            expect(element('#typefield').text()).
-                toMatch(/Article/);
-            expect(element('#titlefield').text()).
+            expect(element('#referenceList tr:last-child .typefield').text()).
+                toMatch(/Inproceedings/);
+            expect(element('#referenceList tr:last-child .titlefield').text()).
                 toMatch(/jokutitle/);
-            expect(element('#authorfield').text()).
+            expect(element('#referenceList tr:last-child .authorfield').text()).
                 toMatch(/jokuauthor jokuauthor/);
-            expect(element('#yearfield').text()).
+            expect(element('#referenceList tr:last-child .yearfield').text()).
                 toMatch(/2013/);
+        });
+
+    });
+    
+    describe('Modify reference', function() {
+
+        it('should show the inproceedings submitted recently', function() {
+            expect(element('.typefield:first').text()).
+                toMatch(/Inproceedings/);
+            expect(element('.titlefield:first').text()).
+                toMatch(/jokutitle/);
+        });
+        
+        it('should show allow modifying existing reference and seeing the changes in the list', function() {
+            element('#referenceList tr:last-child button:first').click();
+            expect(input('reference.title').val()).
+                    toMatch(/jokutitle/);
+            expect(input('reference.authors[$index].name').val()).
+                    toMatch(/jokuauthor jokuauthor/);
+            expect(input('reference.year').val()).
+                    toMatch(/2013/);
+            input('reference.title').enter('muokattutitle');
+            element('#submitbutton').click();
+            expect(browser().location().url()).toBe("/list");
+            expect(element('#referenceList tr:last-of-type .titlefield').text()).
+                    toMatch(/muokattutitle/)
         });
 
     });
