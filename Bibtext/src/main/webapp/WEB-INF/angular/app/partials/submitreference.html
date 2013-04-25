@@ -6,18 +6,19 @@
             <!-- Form Name -->
             <legend>Submit new reference</legend>
 
+
             <!-- Select Basic -->
             <div class="control-group">
-              <label class="control-label">Type</label>
-              <div class="controls">
-                <select id="type" name="type" class="input-xlarge" ng-model="reference.type">
-                  <option>Book</option>
-                  <option>Inproceedings</option>
-                  <option>Article</option>
-                </select>
-              </div>
+                <label class="control-label">Type</label>
+                <div class="controls">
+                    <select id="type" name="type" class="input-xlarge" ng-model="reference.type">
+                        <option>Book</option>
+                        <option>Inproceedings</option>
+                        <option>Article</option>
+                    </select>
+                </div>
             </div>
-            
+
             <!-- Text input-->
             <div class="control-group">
                 <label class="control-label">Title</label>
@@ -26,7 +27,7 @@
                     <span class="error" ng-show="submitReference.title.$error.required">required</span>
                 </div>
             </div>
-            
+
             <!-- Text input-->
             <div class="control-group" ng-show="isInproceedings()">
                 <label class="control-label">Book Title</label>
@@ -65,7 +66,7 @@
                     <span class="error" ng-show="submitReference.publisher.$error.required">required</span>
                 </div>
             </div>
-            
+
             <!-- Text input-->
             <div class="control-group">
                 <label class="control-label">Journal</label>
@@ -83,7 +84,7 @@
                     <span class="error" ng-show="submitReference.volume.$error.required">required</span>
                 </div>
             </div>
-                        
+
             <!-- Text input-->
             <div class="control-group" ng-show="isArticle()">
                 <label class="control-label">Number</label>
@@ -92,7 +93,7 @@
                     <span class="error" ng-show="submitReference.number.$error.required">required</span>
                 </div>
             </div>
-            
+
             <!-- Text input-->
             <div class="control-group" ng-show="isArticleOrInproceedings()">
                 <label class="control-label">Pages</label>
@@ -101,7 +102,7 @@
                     <span class="error" ng-show="submitReference.pages.$error.required">required</span>
                 </div>
             </div>
-            
+
             <!-- Text input-->
             <div class="control-group">
                 <label class="control-label">Address</label>
@@ -137,6 +138,14 @@
         </fieldset>
     </form>
     <div class="clearfix"></div>
+
+    <div class="control-group">
+        <label class="control-label"></label>
+        <div class="controls">
+            <button id="debugsubmit" name="debugsubmit" class="btn btn-success" ng-click="debugSubmit()">Submit debug data</button>
+        </div>
+    </div>
+
 </div>
 
  for debug purposes
