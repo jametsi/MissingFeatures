@@ -169,7 +169,7 @@ function submissionController($scope, $http, $location, $routeParams) {
     
     $scope.debugSubmit = function() {
         var obj1 = {
-            type: "inproceedings",
+            type: "Inproceedings",
             authors: [
             {
                 name: "Arto Vihavainen"
@@ -191,7 +191,7 @@ function submissionController($scope, $http, $location, $routeParams) {
             booktitle: "SIGCSE '11: Proceedings of the 42nd SIGCSE technical symposium on Computer science education"
         }
         var obj2 = {
-            type: "book",
+            type: "Book",
             authors: [{
                 name: "Robert Martin"
             }],
@@ -204,7 +204,7 @@ function submissionController($scope, $http, $location, $routeParams) {
             publisher: "Prentice Hall"
         }
         var obj3 = {
-            type: "article",
+            type: "Article",
             authors: [{
                 name: "Keith J. Whittington"
             }],
