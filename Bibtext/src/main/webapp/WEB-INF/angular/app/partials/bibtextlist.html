@@ -5,7 +5,7 @@
     </div>
 </div>
 <div class="well">
-    <div id="bibtext" ng-repeat="reference in references|filter:query">
+    <div id="bibtext" ng-repeat="reference in references|filter:query" ng-model="result.text">
         @{{reference.type}}<span>{</span>{{reference.bibtextID}},
         <ul id="detailList">
             <li ng-repeat="(field, value) in reference|bibtext">
@@ -16,4 +16,18 @@
     </div>
 </div>
 
+
+<div class="control-group">
+    <label class="control-label">Save displayed as a file</label>
+    <div class="controls">
+        <input id="textinput" placeholder="Filename.bib" name="filename" type="text" placeholder="" class="input-xlarge" ng-model="filename" required>
+    </div>
+</div>
+
+<div class="control-group">
+    <label class="control-label"></label>
+    <div class="controls">
+        <button id="submitbutton" name="saveButton" class="btn btn-success" ng-click="save()">Save as</button>
+    </div>
+</div>
 
