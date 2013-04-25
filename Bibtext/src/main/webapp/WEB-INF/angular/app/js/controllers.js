@@ -19,7 +19,7 @@ function listController($scope, $http) {
         var bb = new BlobBuilder();
         bb.append(angular.element('.well').text())
         var blob = bb.getBlob("text/plain;charset=" + document.characterSet);
-        var filename = $scope.file ? $scope.file.filename : "default.bib";
+        var filename = $scope.file ? $scope.file.filename+".bib" : "default.bib";
          saveAs(blob, filename);
     };
         // Default action after page load
@@ -41,6 +41,7 @@ function referenceDetailController($scope, $http, $routeParams) {
 ;
 
 function submissionController($scope, $http, $location, $routeParams) {
+    
     if($routeParams.referenceId !== undefined) {
         $scope.modify = true;
         $http.get('../rest/' + $routeParams.referenceId).success(function(data) {
