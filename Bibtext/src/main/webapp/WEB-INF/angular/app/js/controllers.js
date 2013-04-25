@@ -14,19 +14,13 @@ function listController($scope, $http) {
     };
 
     
-    $scope.parseText = function() {
-        
-        var rootElement = angular.element('#bibtext');
-        return rootElement.text().replace("\n\n", "\n");
-       
-    };
     
     $scope.save = function() {
         var bb = new BlobBuilder();
-        var payloadText = this.parseText();
-        bb.append(payloadText)
+        bb.append(angular.element('.well').text())
         var blob = bb.getBlob("text/plain;charset=" + document.characterSet);
-         saveAs(blob, "kakka.bib");
+        var filename = $scope.file ? $scope.file.filename : "default.bib";
+         saveAs(blob, filename);
     };
         // Default action after page load
     $scope.getListing();
