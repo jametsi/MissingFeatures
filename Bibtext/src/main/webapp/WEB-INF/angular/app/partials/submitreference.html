@@ -45,7 +45,7 @@
                         <input name="auth[$index]" type="text" placeholder="Firstname Lastname" class="input-xlarge authorinput" ng-model="reference.authors[$index].name" required>
                         <span class="error" ng-show="submitReference.auth[$index].$error.required">required</span>
                     </div>
-                    <button class="btn-small btn-info"><i class="icon-plus-sign" ng-click="newAuthorField()"></i> Add field</button>
+                    <button class="btn-small btn-info" ng-click="newAuthorField()"><i class="icon-plus-sign"></i> Add field</button>
                 </div>
             </div>
 
@@ -140,7 +140,7 @@
                         <input name="tag[$index]" type="text" placeholder="Tagname" class="input-xlarge authorinput" ng-model="reference.tags[$index].name" required>
                         <span class="error" ng-show="submitReference.tags[$index].$error.required">required</span>
                     </div>
-                    <button class="btn-small btn-info"><i class="icon-plus-sign" ng-click="newTagField()"></i> Add field</button>
+                    <button class="btn-small btn-info" ng-click="newTagField()"><i class="icon-plus-sign"></i> Add field</button>
                 </div>
             </div>
         </fieldset>
