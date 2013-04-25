@@ -52,6 +52,7 @@ describe('listController', function() {
         $httpBackend.flush();
         expect(scope.references.length).toBe(0);
     }));
+    
 
 });
 
