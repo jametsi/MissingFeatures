@@ -28,11 +28,11 @@ describe('Bibtext front', function() {
 
     });
 
-    describe('Submit reference', function() {
+    describe('Submit book reference', function() {
 
         beforeEach(function() {
             element('#submitlink').click();
-        });
+        }); 
 
         it('should show submit page after clicking submit-link', function() {
           expect(browser().location().url()).toBe("/submit");
@@ -55,8 +55,64 @@ describe('Bibtext front', function() {
         });
 
     });
+    
+     describe('Submit article reference', function() {
 
+        beforeEach(function() {
+            element('#submitlink').click();
+        });
+
+        it('should show submit page after clicking submit-link', function() {
+          expect(browser().location().url()).toBe("/submit");
+        });
+        
+        it('should accept a reference with title, author & published fields', function() {
+            select('reference.type').option('Article');
+            input('reference.title').enter('jokutitle');
+            input('reference.authors[$index].name').enter('jokuauthor jokuauthor');
+            input('reference.year').enter('2013');
+            element("#submitbutton", "Submit Button").click();
+            expect(browser().location().url()).toBe("/list");
+            expect(element('#typefield').text()).
+                toMatch(/Article/);
+            expect(element('#titlefield').text()).
+                toMatch(/jokutitle/);
+            expect(element('#authorfield').text()).
+                toMatch(/jokuauthor jokuauthor/);
+            expect(element('#yearfield').text()).
+                toMatch(/2013/);
+        });
+
+    });
+ describe('Submit Inproceedings reference', function() {
+
+        beforeEach(function() {
+            element('#submitlink').click();
+        });
+
+        it('should show submit page after clicking submit-link', function() {
+          expect(browser().location().url()).toBe("/submit");
+        });
+        
+        it('should accept a reference with title, author & published fields', function() {
+            select('reference.type').option('Inproceedings');
+            input('reference.title').enter('jokutitle');
+            input('reference.authors[$index].name').enter('jokuauthor jokuauthor');
+            input('reference.year').enter('2013');
+            element("#submitbutton", "Submit Button").click();
+            expect(browser().location().url()).toBe("/list");
+            expect(element('#typefield').text()).
+                toMatch(/Article/);
+            expect(element('#titlefield').text()).
+                toMatch(/jokutitle/);
+            expect(element('#authorfield').text()).
+                toMatch(/jokuauthor jokuauthor/);
+            expect(element('#yearfield').text()).
+                toMatch(/2013/);
+        });
+
+    });
+
+ 
 });
-
-
 
