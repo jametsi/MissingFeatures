@@ -85,8 +85,12 @@ function submissionController($scope, $http, $location, $routeParams) {
     // Empty the book data
     $scope.reset = function() {
         $scope.reference = {
-            "authors": [{"name": ""}],
-            "tags": [{"name": ""}],
+            "authors": [{
+                "name": ""
+            }],
+            "tags": [{
+                "name": ""
+            }],
             "type": "Book"
         };
     };
@@ -172,6 +176,10 @@ function submissionController($scope, $http, $location, $routeParams) {
             }],
             title: "Extreme Apprenticeship Method in Teaching Programming for Beginners.",
             year: 2011,
+            tags: [
+            {
+                "name": ""
+            }],
             booktitle: "SIGCSE '11: Proceedings of the 42nd SIGCSE technical symposium on Computer science education"
         }
         var obj2 = {
@@ -181,6 +189,10 @@ function submissionController($scope, $http, $location, $routeParams) {
             }],
             title: "Clean Code: A Handbook of Agile Software Craftsmanship",
             year: 2008,
+            tags: [
+            {
+                "name": ""
+            }],
             publisher: "Prentice Hall"
         }
         var obj3 = {
@@ -194,6 +206,10 @@ function submissionController($scope, $http, $location, $routeParams) {
             number : 5,
             year : 2004,
             pages : "249-259",
+            tags: [
+            {
+                "name": ""
+            }],
             publisher : "Consortium for Computing Sciences in Colleges",
             address : "USA"
         }
