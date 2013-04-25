@@ -139,6 +139,24 @@ describe('Bibtext front', function() {
         });
 
     });
+    
+    describe('Delete reference', function() {
+
+        it('should show the inproceedings modified recently', function() {
+            expect(element('#referenceList tr:last-of-type .typefield').text()).
+                toMatch(/Inproceedings/);
+            expect(element('#referenceList tr:last-of-type .titlefield').text()).
+                toMatch(/muokattutitle/);
+        });
+        
+        it('should show allow deleting a single reference', function() {
+            element('#referenceList tr:last-child button:nth(1)').click();
+            expect(browser().location().url()).toBe("/list");
+            expect(element('#referenceList tr:last-of-type .typefield').text()).
+                    toMatch(/Article/);
+        });
+
+    });
 
  
 });
