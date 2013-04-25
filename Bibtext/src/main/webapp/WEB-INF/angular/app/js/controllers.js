@@ -40,16 +40,21 @@ function referenceDetailController($scope, $http, $routeParams) {
 
 function submissionController($scope, $http, $location, $routeParams) {
     
-    // if routeParams.referenceId exists, we are modifying an existing reference
-    // hence, we need to get that single reference to pre-fill the form
-    if($routeParams.referenceId !== undefined) {
-        $scope.modify = true;
+    $scope.getArticleDetails = function() {
         $http.get('../rest/' + $routeParams.referenceId).success(function(data) {
             $scope.reference = data;
             $scope.reference.authors = $scope.toNameArray($scope.reference.authors);
             $scope.reference.tags = $scope.toNameArray($scope.reference.tags);
         });
-    }
+    };
+    // if routeParams.referenceId exists, we are modifying an existing reference
+    // hence, we need to get that single reference to pre-fill the form
+    if($routeParams.referenceId !== undefined) {
+        $scope.modify = true;
+        $scope.getArticleDetails();
+    };
+    
+
     
     // These functions are used to show certain fields only when then reference
     // type needs them

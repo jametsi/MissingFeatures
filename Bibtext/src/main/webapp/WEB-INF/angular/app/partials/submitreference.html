@@ -117,13 +117,21 @@
             <div class="control-group">
                 <label class="control-label"></label>
                 <div class="controls">
-                    <button id="clearbutton" name="button1id" class="btn btn-danger" ng-click="reset()">Clear</button>
+                    <button id="clearbutton" name="button1id" class="btn btn-danger" ng-click="reset()"  ng-show="!modify">Clear</button>
+                    <button id="clearbutton" name="button1id" class="btn btn-danger" ng-click="getArticleDetails()"  ng-show="modify">Reset</button>
                     <button id="submitbutton" name="button2id" class="btn btn-success" ng-click="submit(reference)">Submit</button>
                 </div>
             </div>
 
+
+            <div class="control-group" ng-show="!modify">
+                <label class="control-label"></label>
+                <div class="controls">
+                    <button id="debugsubmit" name="debugsubmit" class="btn btn-warning" ng-click="debugSubmit()">Submit debug data</button>
+                </div>
+            </div>
         </fieldset>
-        
+
         <fieldset id="tags">
             <div class="control-group pull-left">
                 <label class="control-label">Tags</label>
@@ -136,15 +144,11 @@
                 </div>
             </div>
         </fieldset>
+
     </form>
+
     <div class="clearfix"></div>
 
-    <div class="control-group">
-        <label class="control-label"></label>
-        <div class="controls">
-            <button id="debugsubmit" name="debugsubmit" class="btn btn-success" ng-click="debugSubmit()">Submit debug data</button>
-        </div>
-    </div>
 
 </div>
 
