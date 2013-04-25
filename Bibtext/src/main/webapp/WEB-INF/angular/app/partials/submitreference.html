@@ -22,7 +22,7 @@
             <div class="control-group">
                 <label class="control-label">Title</label>
                 <div class="controls">
-                    <input id="textinput" name="title" type="text" placeholder="" class="input-xlarge" ng-model="reference.title" required>
+                    <input id="titleinput" name="title" type="text" placeholder="" class="input-xlarge" ng-model="reference.title" required>
                     <span class="error" ng-show="submitReference.title.$error.required">required</span>
                 </div>
             </div>
@@ -32,7 +32,7 @@
                 <label class="control-label">Author</label>
                 <div class="controls">
                     <div ng-repeat="auth in reference.authors">
-                        <input id="textinput" name="auth[$index]" type="text" placeholder="Firstname Lastname" class="input-xlarge" ng-model="reference.authors[$index].name" required>
+                        <input name="auth[$index]" type="text" placeholder="Firstname Lastname" class="input-xlarge authorinput" ng-model="reference.authors[$index].name" required>
                         <span class="error" ng-show="submitReference.auth[$index].$error.required">required</span>
                     </div>
                     <i class="icon-plus-sign" ng-click="newAuthorField()"></i>
@@ -43,7 +43,7 @@
             <div class="control-group">
                 <label class="control-label">Year published</label>
                 <div class="controls">
-                    <input id="textinput" name="year" type="text" placeholder="" class="input-xlarge" ng-model="reference.year" required>
+                    <input id="yearinput" name="year" type="text" placeholder="" class="input-xlarge" ng-model="reference.year" required>
                     <span class="error" ng-show="submitReference.year.$error.required">required</span>
                 </div>
             </div>
@@ -52,7 +52,7 @@
             <div class="control-group">
                 <label class="control-label">Publisher</label>
                 <div class="controls">
-                    <input id="textinput" name="publisher" type="text" placeholder="" class="input-xlarge" ng-model="reference.publisher">
+                    <input id="publisherinput" name="publisher" type="text" placeholder="" class="input-xlarge" ng-model="reference.publisher">
                     <span class="error" ng-show="submitReference.publisher.$error.required">required</span>
                 </div>
             </div>
@@ -61,7 +61,7 @@
             <div class="control-group">
                 <label class="control-label">Journal</label>
                 <div class="controls">
-                    <input id="textinput" name="journal" type="text" placeholder="" class="input-xlarge" ng-model="reference.journal">
+                    <input id="journalinput" name="journal" type="text" placeholder="" class="input-xlarge" ng-model="reference.journal">
                     <span class="error" ng-show="submitReference.journal.$error.required">required</span>
                 </div>
             </div>
@@ -70,7 +70,7 @@
             <div class="control-group" ng-show="isArticle()">
                 <label class="control-label">Volume</label>
                 <div class="controls">
-                    <input id="textinput" name="publisher" type="text" placeholder="" class="input-xlarge" ng-model="reference.volume">
+                    <input id="volumeinput" name="publisher" type="text" placeholder="" class="input-xlarge" ng-model="reference.volume">
                     <span class="error" ng-show="submitReference.volume.$error.required">required</span>
                 </div>
             </div>
@@ -79,7 +79,7 @@
             <div class="control-group">
                 <label class="control-label">Number</label>
                 <div class="controls">
-                    <input id="textinput" name="publisher" type="text" placeholder="" class="input-xlarge" ng-model="reference.number">
+                    <input id="numberinput" name="publisher" type="text" placeholder="" class="input-xlarge" ng-model="reference.number">
                     <span class="error" ng-show="submitReference.number.$error.required">required</span>
                 </div>
             </div>
@@ -88,7 +88,7 @@
             <div class="control-group">
                 <label class="control-label">Pages</label>
                 <div class="controls">
-                    <input id="textinput" name="publisher" type="text" placeholder="" class="input-xlarge" ng-model="reference.pages">
+                    <input id="pagesinput" name="publisher" type="text" placeholder="" class="input-xlarge" ng-model="reference.pages">
                     <span class="error" ng-show="submitReference.pages.$error.required">required</span>
                 </div>
             </div>
@@ -97,7 +97,7 @@
             <div class="control-group">
                 <label class="control-label">Address</label>
                 <div class="controls">
-                    <input id="textinput" name="publisher" type="text" placeholder="" class="input-xlarge" ng-model="reference.address">
+                    <input id="addressinput" name="publisher" type="text" placeholder="" class="input-xlarge" ng-model="reference.address">
                     <span class="error" ng-show="submitReference.address.$error.required">required</span>
                 </div>
             </div>

@@ -15,10 +15,10 @@
         <th>Actions</th>
     </tr>
     <tr ng-repeat="reference in references | filter:query">
-        <td id="typefield">{{reference.type}}</td>
-        <td id="titlefield">{{reference.title}}</td>
-        <td id="authorfield">{{reference.authors|concat}}</td>
-        <td id="yearfield">{{reference.year}}</td>
+        <td class="typefield">{{reference.type}}</td>
+        <td class="titlefield">{{reference.title}}</td>
+        <td class="authorfield">{{reference.authors|concat}}</td>
+        <td class="yearfield">{{reference.year}}</td>
         <td><a href="#/references/{{reference.id}}">BibText</a></td>
         <td>
             <button class="btn btn-warning" onclick="location.href='#/references/modify/{{reference.id}}';">Modify</button>

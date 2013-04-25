@@ -44,14 +44,41 @@ describe('Bibtext front', function() {
             input('reference.year').enter('2013');
             element("#submitbutton", "Submit Button").click();
             expect(browser().location().url()).toBe("/list");
-            expect(element('#typefield').text()).
+            expect(element('.typefield:first').text()).
                 toMatch(/Book/);
-            expect(element('#titlefield').text()).
+            expect(element('.titlefield:first').text()).
                 toMatch(/jokutitle/);
-            expect(element('#authorfield').text()).
+            expect(element('.authorfield:first').text()).
                 toMatch(/jokuauthor jokuauthor/);
-            expect(element('#yearfield').text()).
+            expect(element('.yearfield:first').text()).
                 toMatch(/2013/);
+        });
+
+    });
+    
+    describe('Modify reference', function() {
+
+        
+        it('should show the book submitted earlier', function() {
+            expect(element('.typefield:first').text()).
+                toMatch(/Book/);
+            expect(element('.titlefield:first').text()).
+                toMatch(/jokutitle/);
+        });
+        
+        it('should show allow modifying existing reference and seeing the changes in the list', function() {
+            element('#referenceList tr:last-child button:first').click();
+            expect(input('reference.title').val()).
+                    toMatch(/jokutitle/);
+            expect(input('reference.authors[$index].name').val()).
+                    toMatch(/jokuauthor jokuauthor/);
+            expect(input('reference.year').val()).
+                    toMatch(/2013/);
+            input('reference.title').enter('muokattutitle');
+            element('#submitbutton').click();
+            expect(browser().location().url()).toBe("/list");
+            expect(element('#referenceList tr:last-of-type .titlefield').text()).
+                    toMatch(/muokattutitle/)
         });
 
     });
