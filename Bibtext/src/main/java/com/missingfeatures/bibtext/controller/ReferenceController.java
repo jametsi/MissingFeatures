@@ -43,4 +43,16 @@ public class ReferenceController {
         service.create(reference);
     }
     
+    @RequestMapping(value ="/rest/{referenceId}", method = RequestMethod.POST, consumes="application/json")
+    @ResponseBody
+    public void modify(@RequestBody Reference reference) {
+        service.create(reference);
+    }
+    
+    @RequestMapping(value ="/rest/{referenceId}", method = RequestMethod.DELETE)
+    @ResponseBody
+    public void deleteReference(@PathVariable long referenceId) { 
+        service.delete(referenceId);
+    }
+    
 }

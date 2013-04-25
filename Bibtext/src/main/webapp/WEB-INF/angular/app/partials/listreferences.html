@@ -12,6 +12,7 @@
         <th>Authors</th>
         <th>Year published</th>
         <th>Bibtext</th>
+        <th>Actions</th>
     </tr>
     <tr ng-repeat="reference in references | filter:query">
         <td id="typefield">{{reference.type}}</td>
@@ -19,6 +20,10 @@
         <td id="authorfield">{{reference.authors|concat}}</td>
         <td id="yearfield">{{reference.year}}</td>
         <td><a href="#/references/{{reference.id}}">BibText</a></td>
+        <td>
+            <button class="btn btn-warning" onclick="location.href='#/references/modify/{{reference.id}}';">Modify</button>
+            <button class="btn btn-danger" ng-click="deleteReference(reference.id)">Delete</button>
+        </td>
     </tr>
 </table>
 <p class="alert alert-block" ng-show="!references.length">No references! You can add new references from the top menu</p>

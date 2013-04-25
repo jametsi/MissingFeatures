@@ -35,4 +35,9 @@ public class JpaReferenceService implements ReferenceService {
         return repository.findOne(referenceId);
     }
     
+    @Override
+    public void delete(long referenceId) {
+        repository.delete(referenceId);
+    }
+    
 }
