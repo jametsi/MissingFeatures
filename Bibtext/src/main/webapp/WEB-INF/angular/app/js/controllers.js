@@ -46,15 +46,8 @@ function submissionController($scope, $http, $location, $routeParams) {
         $scope.modify = true;
         $http.get('../rest/' + $routeParams.referenceId).success(function(data) {
             $scope.reference = data;
-            var authors = [];
-            console.log($scope.reference.authors);
-            for(var i = 0; i < $scope.reference.authors.length;i++) {
-                authors.push({
-                    name:$scope.reference.authors[i]
-                });
-            }
-            
-            $scope.reference.authors = authors;
+            $scope.reference.authors = $scope.toNameArray($scope.reference.authors);
+            $scope.reference.tags = $scope.toNameArray($scope.reference.tags);
         });
     }
     
@@ -100,6 +93,16 @@ function submissionController($scope, $http, $location, $routeParams) {
         ;
         return resultArray;
     };
+    
+    $scope.toNameArray = function(array) {
+        var resultArray = [];
+        for(var i = 0; i < array.length;i++) {
+            resultArray.push({
+                name:array[i]
+            });
+        }
+        return resultArray;
+    }
 
 
     // For comma separated authors, take [0][1] from string,

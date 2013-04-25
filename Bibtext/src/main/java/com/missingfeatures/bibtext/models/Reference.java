@@ -70,9 +70,6 @@ public class Reference implements Serializable {
     public void setTags(List<String> tags) {
         this.tags = tags;
     }
-    
-
-    
     /**
      * @return the id
      */
