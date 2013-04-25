@@ -117,9 +117,9 @@ describe('Bibtext front', function() {
     describe('Modify reference', function() {
 
         it('should show the inproceedings submitted recently', function() {
-            expect(element('.typefield:first').text()).
+            expect(element('#referenceList tr:last-of-type .typefield').text()).
                 toMatch(/Inproceedings/);
-            expect(element('.titlefield:first').text()).
+            expect(element('#referenceList tr:last-of-type .titlefield').text()).
                 toMatch(/jokutitle/);
         });
         
