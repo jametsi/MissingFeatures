@@ -158,6 +158,12 @@ describe('Bibtext front', function() {
 
     });
 
+ it('should show only results user searhed', function() {
+  input('query').enter('muokattutitle');
+  expect(repeater('ul li').count()).toEqual(3);
+  
+});
+
  
 });
 

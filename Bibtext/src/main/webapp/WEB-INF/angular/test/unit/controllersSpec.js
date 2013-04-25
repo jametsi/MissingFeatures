@@ -91,7 +91,7 @@ describe('submissionController', function() {
             "year": "2011",
             "publisher": "pub"
         }
-        var result = scope.authorsToStringArray(payload);
+        var result = scope.toStringArray(payload.authors);
         expect(result[0]).toMatch("author1");
         expect(result[1]).toMatch("author2");
         expect(result[2]).toMatch("author3");
