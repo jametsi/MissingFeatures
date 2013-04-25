@@ -4,23 +4,23 @@
         <input id="textinput" name="search" type="text" placeholder="" class="search-query" ng-model="query">
     </div>
 </div>
-<div class="well">
-    <div id="bibtext" ng-repeat="reference in references|filter:query" ng-model="result.text">
-        @{{reference.type}}<span>{</span>{{reference.bibtextID}},
-        <ul id="detailList">
-            <li ng-repeat="(field, value) in reference|bibtext">
-                {{field}} = {{value}},
-            </li> 
-        </ul>
-        }<br><br>
-    </div>
-</div>
 
+<!-- DO NOT FUCKING TOUCH THIS, THIS IS A HOUSE OF CARDS! -->
+<div class="well">
+<div id="printed"><div id="bibtext" ng-repeat="reference in references|filter:query" ng-model="result.text">@{{reference.type}}<span>{</span>{{reference.bibtextID}},<ul id="detailList"><li ng-repeat="(field, value) in reference|bibtext">
+    {{field}} = {{value}},</li> </ul>
+}
+<br><br>
+</div>
+</div>
+</div>
+<!-- WARNING ENDS -->
 
 <div class="control-group">
     <label class="control-label">Save displayed as a file</label>
     <div class="controls">
-        <input id="textinput" placeholder="Filename.bib" name="filename" type="text" placeholder="" class="input-xlarge" ng-model="filename" required>
+        <input id="textinput" placeholder="Filename.bib" name="filename" type="text" placeholder="" class="input-xlarge" ng-model="file.filename" required>
+        <span class="error" ng-show="filename.$error.required">required</span>
     </div>
 </div>
 
